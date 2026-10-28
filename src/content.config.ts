@@ -31,7 +31,8 @@ const block = z.discriminatedUnion('type', [
 ]);
 
 const projects = defineCollection({
-  loader: glob({ pattern: '*.yaml', base: './src/content/projects' }),
+  // id = nombre del archivo (el campo `slug` es un objeto ES/EN y no debe usarse como id)
+  loader: glob({ pattern: '*.yaml', base: './src/content/projects', generateId: ({ entry }) => entry.replace(/\.ya?ml$/, '') }),
   schema: z.object({
     order: z.number(),
     featured: z.number().optional(),
