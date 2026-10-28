@@ -13,9 +13,11 @@ export function initHero(): void {
   if (!plate || !line || !img) return;
   const caps = hero.querySelectorAll('.hero-cap .mask > *');
 
+  // márgenes laterales reales (la línea empieza con scaleX 0, por eso medimos la banda inferior)
+  const band = hero.querySelector<HTMLElement>('.hero-cap') ?? hero;
   const gutters = () => {
-    const r = line.getBoundingClientRect();
-    return { l: Math.round(r.left), r: Math.round(window.innerWidth - r.right) };
+    const r = band.getBoundingClientRect();
+    return { l: Math.round(r.left), r: Math.round(document.documentElement.clientWidth - r.right) };
   };
   const { l, r } = gutters();
 

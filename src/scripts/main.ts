@@ -38,5 +38,9 @@ if (motion) {
   }
 }
 
+// orden de cálculo según la posición en la página (secciones fijadas incluidas)
+ScrollTrigger.sort();
+ScrollTrigger.refresh();
+
 initLangMemory();
 window.addEventListener('load', () => ScrollTrigger.refresh());
