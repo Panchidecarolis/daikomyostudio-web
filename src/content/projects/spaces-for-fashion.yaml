@@ -1,0 +1,56 @@
+# Propuesta de concurso. Organizador y resultado: ver PENDIENTES.md
+order: 6
+featured: 5
+slug:
+  es: spaces-for-fashion
+  en: spaces-for-fashion
+title:
+  es: Spaces for Fashion
+  en: Spaces for Fashion
+year: "2024"
+status: competition
+program:
+  es: Rehabilitación · Espacio expositivo
+  en: Adaptive reuse · Exhibition space
+location:
+  es: Biella, Italia
+  en: Biella, Italy
+hero: sff-patio
+cover: sff-patio
+sequence: [sff-patio, sff-boveda, sff-telar]
+text:
+  es:
+    - A orillas del río Cervo, la antigua fábrica Trombetta conserva la memoria industrial de Biella.
+    - >-
+      Una nueva cubierta entreteje ambos volúmenes en un único conjunto, reinterpretando la geometría de los tejados de la
+      ciudad. Una arquitectura que encuentra en el pasado el punto de partida para imaginar el futuro.
+  en:
+    - Along the banks of the Cervo River, the former Trombetta factory preserves Biella's industrial memory.
+    - >-
+      A new roof weaves both volumes into a unified whole, reinterpreting the geometry of the city's traditional roofscape.
+      An architecture that looks to the past as a starting point for imagining the future.
+alt:
+  sff-patio:
+    es: Patio entre la fábrica de ladrillo y el nuevo volumen, unidos por una cubierta ondulada
+    en: Courtyard between the brick factory and the new volume, joined by an undulating roof
+  sff-boveda:
+    es: Interior abovedado con un tejido de lana suspendido
+    en: Vaulted interior with a suspended woollen textile
+  sff-telar:
+    es: Sala de exposición con una pieza textil roja bajo la luz rasante
+    en: Exhibition hall with a red textile piece under grazing light
+  sff-cortinas:
+    es: Cortinas de lana que filtran la luz en el recorrido expositivo
+    en: Woollen curtains filtering the light along the exhibition route
+  sff-corte:
+    es: Corte longitudinal de la fábrica y la nueva cubierta
+    en: Longitudinal section of the factory and the new roof
+blocks:
+  - type: pair
+    images: [sff-boveda, sff-telar]
+  - type: expand
+    image: sff-cortinas
+  - type: single
+    image: sff-corte
+    size: full
+    align: center

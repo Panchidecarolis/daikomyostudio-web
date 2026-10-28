@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t } from '../i18n/ui';
+import { routes } from '../i18n/routes';
+const lang = 'es' as const;
+---
+
+<BaseLayout lang={lang} title={t(lang, '404.title')} alternates={{ es: '/es/', en: '/en/' }} page="404" noindex>
+  <section class="notfound grid12 wrap">
+    <h1>{t(lang, '404.title')}</h1>
+    <p>{t(lang, '404.text')} <span lang="en">— {t('en', '404.text')}</span></p>
+    <a class="arrow-link" href={routes.home[lang]}><span class="u-static">{t(lang, '404.back')}</span><span aria-hidden="true">→</span></a>
+  </section>
+</BaseLayout>

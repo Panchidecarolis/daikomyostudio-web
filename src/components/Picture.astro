@@ -1,0 +1,41 @@
+---
+/**
+ * Imagen responsive (AVIF + WebP) con tamaños explícitos para evitar saltos de layout.
+ * `expose` agrega el velo de "Exposición" que main.ts retira al entrar en pantalla.
+ */
+import { getMedia, srcset, fallbackSrc, ratio } from '../lib/media';
+
+interface Props {
+  id: string;
+  alt: string;
+  sizes?: string;
+  class?: string;
+  priority?: boolean;
+  expose?: boolean;
+  natural?: boolean;
+  vt?: string;
+  hidden?: boolean;
+  style?: string;
+}
+
+const { id, alt, sizes = '100vw', class: cls = '', priority = false, expose = false, natural = false, vt, hidden = false, style = '' } = Astro.props;
+const m = getMedia(id);
+const styles = [`--ph-bg:${m.bg}`, `--ir:${ratio(id)}`, vt ? `view-transition-name:${vt}` : '', style].filter(Boolean).join(';');
+---
+
+<div class:list={['ph', cls, { 'is-natural': natural }]} style={styles} data-expose={expose ? '' : undefined} aria-hidden={hidden ? 'true' : undefined}>
+  <picture>
+    <source type="image/avif" srcset={srcset(id, 'avif')} sizes={sizes} />
+    <source type="image/webp" srcset={srcset(id, 'webp')} sizes={sizes} />
+    <img
+      src={fallbackSrc(id)}
+      alt={hidden ? '' : alt}
+      width={m.w}
+      height={m.h}
+      loading={priority ? 'eager' : 'lazy'}
+      decoding={priority ? 'sync' : 'async'}
+      fetchpriority={priority ? 'high' : undefined}
+    />
+  </picture>
+  {expose && <span class="veil" aria-hidden="true"></span>}
+</div>

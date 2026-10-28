@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectGrid from '../ProjectGrid.astro';
+import { t, statuses, type Lang } from '../../i18n/ui';
+import { pageAlternates } from '../../i18n/routes';
+import { getProjects } from '../../lib/projects';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const projects = await getProjects();
+const count = (s: string) => projects.filter((p) => p.data.status === s).length;
+const present = statuses.filter((s) => count(s) > 0);
+---
+
+<BaseLayout lang={lang} title={t(lang, 'projects.title')} description={t(lang, 'projects.description')} alternates={pageAlternates('projects')} page="projects">
+  <div class="page-title grid12 wrap">
+    <h1 data-lines>{t(lang, 'projects.title')}<sup class="num">{projects.length}</sup></h1>
+    <div class="filters" role="group" aria-label={t(lang, 'projects.filter')} data-filters>
+      <button type="button" data-filter="all" aria-pressed="true">{t(lang, 'projects.all')}<sup class="num">{projects.length}</sup></button>
+      {present.map((s) => (
+        <button type="button" data-filter={s} aria-pressed="false">{t(lang, `status.${s}`)}<sup class="num">{count(s)}</sup></button>
+      ))}
+    </div>
+  </div>
+  <div class="wrap" style="padding-bottom: clamp(4rem, 10vh, 8rem)">
+    <ProjectGrid projects={projects} lang={lang} id="all-projects" />
+  </div>
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+import { t, type Lang } from '../i18n/ui';
+import { routes, otherLang, type Alternates } from '../i18n/routes';
+import { INSTAGRAM_URL } from '../i18n/pages';
+
+interface Props {
+  lang: Lang;
+  alternates: Alternates;
+}
+const { lang, alternates } = Astro.props;
+const other = otherLang(lang);
+---
+
+<footer class="site-footer wrap grid12">
+  <span class="f-name">DAIKOMYOESTUDIO</span>
+  <nav aria-label={t(lang, 'nav.main')}>
+    <a href={routes.projects[lang]}>{t(lang, 'nav.projects')}</a>
+    <a href={routes.studio[lang]}>{t(lang, 'nav.studio')}</a>
+    <a href={routes.contact[lang]}>{t(lang, 'nav.contact')}</a>
+  </nav>
+  <div class="f-right">
+    <a href={INSTAGRAM_URL} target="_blank" rel="noopener">{t(lang, 'footer.instagram')}</a>
+    <a href={alternates[other]} hreflang={other} lang={other} data-lang-switch>{other === 'en' ? 'English' : 'Español'}</a>
+  </div>
+</footer>

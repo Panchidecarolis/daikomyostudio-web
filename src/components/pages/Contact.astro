@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { type Lang } from '../../i18n/ui';
+import { pageAlternates } from '../../i18n/routes';
+import { contact, INSTAGRAM_URL, INSTAGRAM_HANDLE } from '../../i18n/pages';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = contact[lang];
+---
+
+<BaseLayout lang={lang} title={c.title} description={c.description} alternates={pageAlternates('contact')} page="contact">
+  <section class="contact grid12 wrap">
+    <h1 data-lines>{c.title}</h1>
+    <p class="lead" data-lines>{c.lead}</p>
+    <dl>
+      <dt>{c.instagram}</dt>
+      <dd><a class="u-static" href={INSTAGRAM_URL} target="_blank" rel="noopener">{INSTAGRAM_HANDLE}</a></dd>
+    </dl>
+  </section>
+</BaseLayout>

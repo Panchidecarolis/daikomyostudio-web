@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Picture from '../Picture.astro';
+import ProjectGrid from '../ProjectGrid.astro';
+import { t, type Lang } from '../../i18n/ui';
+import { routes, projectUrl, pageAlternates } from '../../i18n/routes';
+import { getProjects, getFeatured, altFor, shortYear } from '../../lib/projects';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const all = await getProjects();
+const featured = await getFeatured();
+const lead = featured[0];
+const built = all.find((p) => p.id === 'cafe-par-tres');
+const meta = [lead.data.location?.[lang], lead.data.year, t(lang, `status.${lead.data.status}` as 'status.built')].filter(Boolean).join(' · ');
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'DAIKOMYOESTUDIO',
+  url: 'https://daikomo.netlify.app/',
+  sameAs: ['https://www.instagram.com/daikomyostudio/'],
+};
+---
+
+<BaseLayout lang={lang} alternates={pageAlternates('home')} page="home" ogImage={`/og/${lead.id}.jpg`}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(orgLd)} />
+
+  <section class="hero" data-hero aria-label={lead.data.title[lang]}>
+    <div class="hero-plate" data-hero-plate>
+      <Picture id={lead.data.hero} alt={altFor(lead, lead.data.hero, lang)} sizes="100vw" priority />
+    </div>
+    <span class="hero-horizon" aria-hidden="true" data-hero-horizon></span>
+    <div class="hero-cap">
+      <span class="mask"><a class="hero-title arrow-link" href={projectUrl(lang, lead.data.slug)}><span>{lead.data.title[lang]}</span><span aria-hidden="true">→</span></a></span>
+      <span class="mask"><span class="hero-meta">{meta}</span></span>
+    </div>
+  </section>
+
+  <section class="statement grid12 wrap">
+    <span class="label">{t(lang, 'nav.studio')}</span>
+    <h2 data-lines>{t(lang, 'home.manifesto')}</h2>
+    <p data-lines>{t(lang, 'home.manifestoSub')}</p>
+    <a class="arrow-link" href={routes.studio[lang]}><span class="u-static">{t(lang, 'home.toStudio')}</span><span aria-hidden="true">→</span></a>
+  </section>
+
+  <section class="wrap" aria-labelledby="sel-title">
+    <div class="section-head">
+      <h2 id="sel-title">{t(lang, 'home.selected')}</h2>
+      <a class="arrow-link" href={routes.projects[lang]}><span class="u-static">{t(lang, 'home.all')}</span><span aria-hidden="true">→</span></a>
+    </div>
+    <ProjectGrid projects={featured} lang={lang} />
+  </section>
+
+  {built && (
+    <div class="blocks" style="padding-bottom:0">
+      <section class="b-expand" data-block="expand" aria-label={built.data.title[lang]}>
+        <div class="frame">
+          <Picture id="p3-muro" alt={altFor(built, 'p3-muro', lang)} sizes="100vw" />
+        </div>
+      </section>
+      <section class="b-text grid12 wrap">
+        <p data-lines>{built.data.text[lang][0]}</p>
+        <a class="arrow-link home-built-link" href={projectUrl(lang, built.data.slug)}><span class="u-static">{built.data.title[lang]}</span><span aria-hidden="true">→</span></a>
+      </section>
+    </div>
+  )}
+
+  <section class="wrap" aria-labelledby="idx-title" style="padding-block: clamp(5rem, 12vh, 8rem) 0">
+    <div class="section-head" style="border-top:0;padding-top:0">
+      <h2 id="idx-title">{t(lang, 'home.index')}</h2>
+    </div>
+    <nav class="index-list" aria-labelledby="idx-title">
+      {all.map((p) => (
+        <a href={projectUrl(lang, p.data.slug)}>
+          <span class="m num" style="display:block">{shortYear(p.data.year)}</span>
+          <span class="t">{p.data.title[lang]}</span>
+          <span class="m">{p.data.location?.[lang] ?? p.data.program?.[lang] ?? ''}</span>
+          <span class="m">{t(lang, `status.${p.data.status}` as 'status.built')}</span>
+        </a>
+      ))}
+    </nav>
+  </section>
+</BaseLayout>

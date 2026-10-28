@@ -1,0 +1,47 @@
+# Visualización arquitectónica: la arquitectura no es de DAIKOMYOESTUDIO.
+order: 7
+slug:
+  es: balvanera
+  en: balvanera
+title:
+  es: Balvanera
+  en: Balvanera
+year: "2023"
+status: visualization
+program:
+  es: Restaurante
+  en: Restaurant
+location:
+  es: Pittsburgh, Estados Unidos
+  en: Pittsburgh, United States
+client: Balvanera
+architecture: Moss Architects
+role:
+  es: Imágenes del proyecto
+  en: Project images
+hero: balv-ext
+heroLayout: contained
+cover: balv-ext
+sequence: [balv-ext, balv-int, balv-int2]
+text:
+  es:
+    - >-
+      Visualización arquitectónica del restaurante Balvanera en Pittsburgh, Estados Unidos, proyectado por Moss
+      Architects. DAIKOMYOESTUDIO realizó las imágenes.
+  en:
+    - >-
+      Architectural visualisation of Balvanera restaurant in Pittsburgh, United States, designed by Moss Architects.
+      DAIKOMYOESTUDIO produced the images.
+alt:
+  balv-ext:
+    es: Fachada de ladrillo con toldos azules del restaurante Balvanera
+    en: Brick façade with the blue awnings of Balvanera restaurant
+  balv-int:
+    es: Salón con banquetas azules, sillas de madera curvada y paredes con cuadros
+    en: Dining room with blue banquettes, bentwood chairs and framed pictures
+  balv-int2:
+    es: Salón con lámparas de tela, jardinera central y estanterías de vinos
+    en: Dining room with fabric pendants, a central planter and wine shelves
+blocks:
+  - type: pair
+    images: [balv-int, balv-int2]

@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Picture from '../Picture.astro';
+import Blocks from './Blocks.astro';
+import { t, type Lang } from '../../i18n/ui';
+import { routes, projectUrl } from '../../i18n/routes';
+import { excerpt, type Project } from '../../lib/projects';
+
+interface Props {
+  project: Project;
+  next: Project;
+  index: number;
+  total: number;
+  lang: Lang;
+}
+const { project: p, next, index, total, lang } = Astro.props;
+const d = p.data;
+const alternates = { es: projectUrl('es', d.slug), en: projectUrl('en', d.slug) };
+const inBlocks = new Set(d.blocks.filter((b) => b.type === 'paragraph').map((b) => (b as { index: number }).index));
+const intro = d.text[lang].filter((_, i) => !inBlocks.has(i));
+const facts: [string, string][] = [
+  [t(lang, 'project.year'), d.year],
+  ...(d.location ? [[t(lang, 'project.location'), d.location[lang]] as [string, string]] : []),
+  ...(d.program ? [[t(lang, 'project.program'), d.program[lang]] as [string, string]] : []),
+  [t(lang, 'project.status'), t(lang, `status.${d.status}` as 'status.built')],
+  ...(d.role ? [[t(lang, 'project.role'), d.role[lang]] as [string, string]] : []),
+  ...(d.architecture ? [[t(lang, 'project.architecture'), d.architecture] as [string, string]] : []),
+  ...(d.client ? [[t(lang, 'project.client'), d.client] as [string, string]] : []),
+];
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<BaseLayout
+  lang={lang}
+  title={d.title[lang]}
+  description={excerpt(d.text[lang][0])}
+  alternates={alternates}
+  page="project"
+  ogImage={`/og/${p.id}.jpg`}
+  progress
+>
+  <article>
+    <div class="p-bar wrap">
+      <a class="arrow-link" href={routes.projects[lang]}><span aria-hidden="true">←</span><span>{t(lang, 'project.back')}</span></a>
+      <span class="num">{pad(index + 1)} / {pad(total)}</span>
+    </div>
+
+    <div class:list={['p-hero wrap', { 'is-contained': d.heroLayout === 'contained' }]} data-hero-project>
+      <Picture id={d.hero} alt={d.alt[d.hero]?.[lang] ?? d.title[lang]} sizes={d.heroLayout === 'contained' ? '(min-width: 768px) 84vw, 100vw' : '100vw'} priority vt={`p-${p.id}`} />
+    </div>
+
+    <header class="p-head grid12 wrap">
+      <h1 data-lines>{d.title[lang]}</h1>
+      <span class="tag" data-status={d.status}>{t(lang, `status.${d.status}` as 'status.built')}</span>
+    </header>
+
+    <div class="p-info grid12 wrap">
+      <dl class="p-facts">
+        {facts.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
+      </dl>
+      <div class="p-text">
+        {intro.map((para) => <p data-lines>{para}</p>)}
+      </div>
+    </div>
+
+    <Blocks project={p} lang={lang} />
+
+    <div class="wrap">
+      <a class="p-next" href={projectUrl(lang, next.data.slug)}>
+        <span class="label">{t(lang, 'project.next')}</span>
+        <span class="t">{next.data.title[lang]}</span>
+      </a>
+    </div>
+  </article>
+</BaseLayout>

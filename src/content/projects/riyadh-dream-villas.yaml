@@ -1,0 +1,57 @@
+# Concurso. Resultado ("Finalist") y organizador sin verificar: no se publican. Ver PENDIENTES.md
+order: 8
+featured: 6
+slug:
+  es: riyadh-dream-villas
+  en: riyadh-dream-villas
+title:
+  es: Riyadh Dream Villas
+  en: Riyadh Dream Villas
+year: "2021"
+status: competition
+program:
+  es: Vivienda colectiva
+  en: Collective housing
+hero: rdv-majlis
+cover: rdv-majlis
+sequence: [rdv-majlis, rdv-villa, rdv-community]
+text:
+  es:
+    - >-
+      Un viaje hacia los orígenes de la humanidad revela cómo las antiguas civilizaciones encontraron refugio en las
+      formaciones rocosas del desierto, donde cuevas y espacios ocultos dieron lugar a distintas formas de habitar.
+    - >-
+      Five Sense Community reinterpreta esta relación ancestral entre naturaleza y arquitectura, organizando la vida
+      colectiva alrededor de un jardín central, donde la sombra, el agua y la luz construyen un lugar de encuentro y
+      contemplación.
+  en:
+    - >-
+      A journey into the origins of humanity reveals how ancient civilizations found shelter within the rock formations
+      of the desert, where caves and hidden spaces gave rise to different ways of inhabiting.
+    - >-
+      Five Sense Community reinterprets this ancestral relationship between nature and architecture, organizing
+      collective life around a central garden, where shade, water, and light create a place for gathering and
+      contemplation.
+alt:
+  rdv-majlis:
+    es: Espacio excavado en la roca con agua, celosía y luz filtrada
+    en: Space carved into rock with water, latticework and filtered light
+  rdv-villa:
+    es: Interior de la villa con terrazas de piedra, agua y luz cenital
+    en: Villa interior with stone terraces, water and light from above
+  rdv-community:
+    es: Jardín central bajo cubiertas en forma de copa entre palmeras
+    en: Central garden beneath cup-shaped canopies among palm trees
+  rdv-paisaje:
+    es: Formaciones rocosas del desierto al atardecer
+    en: Desert rock formations at dusk
+  rdv-diagrama:
+    es: Diagrama de los cinco sentidos organizados alrededor del jardín
+    en: Diagram of the five senses organised around the garden
+blocks:
+  - type: horizontal
+    images: [rdv-villa, rdv-community, rdv-paisaje]
+  - type: single
+    image: rdv-diagrama
+    size: m
+    align: center

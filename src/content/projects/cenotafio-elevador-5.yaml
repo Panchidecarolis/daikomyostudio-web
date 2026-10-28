@@ -1,0 +1,74 @@
+# Obra construida. Crédito fotográfico de la serie NH Fotografía y fecha de inauguración: ver PENDIENTES.md
+order: 5
+featured: 3
+slug:
+  es: cenotafio-elevador-5
+  en: cenotaph-elevador-5
+title:
+  es: Cenotafio / Elevador 5
+  en: Cenotaph / Elevador 5
+year: "2024–2025"
+status: built
+program:
+  es: Memorial
+  en: Memorial
+location:
+  es: Ingeniero White, Bahía Blanca
+  en: Ingeniero White, Bahía Blanca
+client: URGARA – Puerto de Bahía Blanca
+hero: ceno-render
+cover: ceno-render
+sequence: [ceno-render, ceno-obra, ceno-placas]
+text:
+  es:
+    - >-
+      El Cenotafio se erige como un espacio de introspección y memoria en medio del paisaje industrial de Ingeniero White.
+    - >-
+      Dos semicírculos de acero se entrelazan en un gesto simbólico que evoca un abrazo, buscando contener el duelo de las
+      familias y preservar la memoria de quienes ya no están.
+    - >-
+      El recorrido atraviesa distintos grados de intimidad hasta alcanzar un espacio de silencio y recogimiento, donde la
+      materia y las huellas del tiempo construyen una atmósfera de contemplación.
+  en:
+    - >-
+      The Cenotaph stands as a place of introspection and remembrance within the industrial landscape of Ingeniero White.
+    - >-
+      Two steel semicircles intertwine in a symbolic gesture evoking an embrace, seeking to comfort grieving families and
+      preserve the memory of those no longer with us.
+    - >-
+      The path unfolds through different degrees of intimacy, leading to a space of silence and reflection, where
+      material and the traces of time shape an atmosphere of contemplation.
+alt:
+  ceno-render:
+    es: Vista aérea de los dos semicírculos de acero corten entre árboles
+    en: Aerial view of the two weathering-steel semicircles among trees
+  ceno-obra:
+    es: Los muros curvos de acero frente a los galpones y silos del puerto
+    en: The curved steel walls in front of the port's sheds and silos
+  ceno-elevador:
+    es: Ingreso al cenotafio con la inscripción Elevador 5 y ofrendas florales
+    en: Entrance to the cenotaph with the Elevador 5 inscription and floral tributes
+  ceno-ingreso:
+    es: Paso entre los dos muros de acero hacia el interior del recinto
+    en: Passage between the two steel walls into the enclosure
+  ceno-placas:
+    es: Placas con nombres fijadas sobre el acero
+    en: Name plaques fixed to the steel
+  ceno-axo:
+    es: Axonometría de los dos semicírculos entrelazados
+    en: Axonometric drawing of the two intertwined semicircles
+blocks:
+  - type: pair
+    images: [ceno-obra, ceno-elevador]
+  - type: slit
+    image: ceno-ingreso
+  - type: paragraph
+    index: 2
+  - type: single
+    image: ceno-placas
+    size: s
+    align: left
+  - type: single
+    image: ceno-axo
+    size: l
+    align: center

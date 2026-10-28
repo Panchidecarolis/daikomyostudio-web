@@ -1,0 +1,56 @@
+# Ubicación y traducción oficial del nombre al inglés: ver PENDIENTES.md
+order: 3
+slug:
+  es: centro-de-capacitacion-de-peritos-de-granos
+  en: grain-inspectors-training-centre
+title:
+  es: Centro de Capacitación de Peritos de Granos
+  en: Centro de Capacitación de Peritos de Granos
+year: "2026–2027"
+status: project
+program:
+  es: Equipamiento educativo
+  en: Educational facility
+client: URGARA
+hero: cc-fachada
+heroLayout: contained
+cover: cc-fachada
+sequence: [cc-fachada, cc-axo]
+text:
+  es:
+    - >-
+      La búsqueda arquitectónica toma como punto de partida las antiguas viviendas de chapa y madera de los trabajadores
+      ferroportuarios de Ingeniero White, cuya construcción liviana respondía a las condiciones del suelo arcilloso
+      expansivo y contribuyó a definir la identidad del lugar.
+    - >-
+      Esa misma condición del territorio orienta hoy el proyecto, que reinterpreta aquella lógica constructiva mediante
+      una estructura metálica liviana y una sucesión de cubiertas inclinadas que incorporan luz natural. Una arquitectura
+      que encuentra en la memoria del lugar una respuesta para el presente.
+  en:
+    - >-
+      The architectural approach draws from the traditional metal-clad and timber houses of Ingeniero White's railway
+      and port workers, whose lightweight construction responded to the expansive clay soil and helped shape the
+      identity of the place.
+    - >-
+      That same condition of the land continues to inform the project today, reinterpreting this construction logic
+      through a lightweight steel structure and a sequence of sloping roofs that bring natural light into the interior.
+      An architecture that finds in the memory of the place a response to the present.
+alt:
+  cc-fachada:
+    es: Fachada blanca con cubierta inclinada y cerramiento de varillas verticales
+    en: White façade with a pitched roof and a screen of vertical rods
+  cc-cortes:
+    es: Cortes con la sucesión de cubiertas inclinadas que incorporan luz natural
+    en: Sections showing the sequence of sloping roofs bringing in natural light
+  cc-axo:
+    es: Axonometrías de la estructura metálica liviana
+    en: Axonometric drawings of the lightweight steel structure
+blocks:
+  - type: single
+    image: cc-cortes
+    size: full
+    align: center
+  - type: single
+    image: cc-axo
+    size: l
+    align: center

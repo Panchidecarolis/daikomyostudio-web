@@ -1,0 +1,60 @@
+# Obra construida. Fotógrafo/a de la serie y ubicación: ver PENDIENTES.md
+order: 1
+featured: 2
+slug:
+  es: cafe-par-tres
+  en: cafe-par-tres
+title:
+  es: Café Par Tres
+  en: Café Par Tres
+year: "2026"
+status: built
+program:
+  es: Interiorismo · Gastronomía
+  en: Interior design · Hospitality
+client: Par Tres Café
+hero: p3-barra
+cover: p3-barra
+sequence: [p3-barra, p3-lamparas, p3-muro]
+text:
+  es:
+    - >-
+      La propuesta busca equilibrar el carácter racional de la arquitectura existente con una atmósfera cálida e íntima,
+      donde lo cotidiano adquiere valor.
+    - >-
+      Una barra curva de acero inoxidable introduce un gesto de proximidad dentro de la geometría ortogonal, organizando
+      un espacio flexible y sin jerarquías. El diálogo entre el hormigón y la madera, junto con las visuales hacia el
+      Parque Boronat, construye un lugar donde la arquitectura acompaña el encuentro y el tiempo compartido.
+  en:
+    - >-
+      The proposal seeks to balance the rational character of the existing architecture with a warm, intimate
+      atmosphere, where everyday moments acquire meaning.
+    - >-
+      A curved stainless steel counter introduces a gesture of closeness within the orthogonal geometry, shaping a
+      flexible space without hierarchy. The dialogue between concrete and wood, together with views towards Boronat
+      Park, creates a place where architecture supports gathering and time spent together.
+alt:
+  p3-barra:
+    es: Barra curva de acero inoxidable bajo lámparas de papel y losa de hormigón
+    en: Curved stainless steel counter beneath paper lamps and a concrete slab
+  p3-barra-v:
+    es: La barra curva frente al muro revestido en madera
+    en: The curved counter in front of the timber-clad wall
+  p3-lamparas:
+    es: Lámparas de papel suspendidas sobre la barra de acero
+    en: Paper lamps hanging above the steel counter
+  p3-muro:
+    es: Banco corrido y mesas de madera frente al muro con apliques de luz
+    en: Built-in bench and timber tables against the wall with sconces
+  p3-vidriera:
+    es: El café visto desde la vereda a través de la vidriera
+    en: The café seen from the street through the shopfront
+blocks:
+  - type: pair
+    images: [p3-barra-v, p3-lamparas]
+  - type: expand
+    image: p3-muro
+  - type: single
+    image: p3-vidriera
+    size: m
+    align: right

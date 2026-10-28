@@ -1,0 +1,92 @@
+---
+import '@fontsource-variable/instrument-sans';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { t, type Lang } from '../i18n/ui';
+import type { Alternates, PageKey } from '../i18n/routes';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  alternates: Alternates;
+  page?: PageKey | 'project' | '404';
+  ogImage?: string;
+  progress?: boolean;
+  noindex?: boolean;
+}
+
+const { lang, title, description, alternates, page, ogImage = '/og/default.jpg', progress = false, noindex = false } = Astro.props;
+const siteName = t(lang, 'site.name');
+const fullTitle = title ? `${title} — ${siteName}` : `${siteName} — ${lang === 'es' ? 'Estudio de arquitectura' : 'Architecture studio'}`;
+const desc = description ?? t(lang, 'site.description');
+const site = Astro.site ?? new URL('https://daikomo.netlify.app');
+const canonical = new URL(alternates[lang], site).href;
+const og = new URL(ogImage, site).href;
+---
+
+<!doctype html>
+<html lang={lang === 'es' ? 'es-AR' : 'en'}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es" href={new URL(alternates.es, site).href} />
+    <link rel="alternate" hreflang="en" href={new URL(alternates.en, site).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL(alternates.es, site).href} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#f5f4f0" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={lang === 'es' ? 'es_AR' : 'en_US'} />
+    <meta property="og:locale:alternate" content={lang === 'es' ? 'en_US' : 'es_AR'} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <style is:inline>
+      @view-transition { navigation: auto; }
+      ::view-transition-group(*) { animation-duration: .85s; animation-timing-function: cubic-bezier(.65,.05,.25,1); }
+      ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .4s; }
+      ::view-transition-old(*):not(:only-child), ::view-transition-new(*):not(:only-child) { height: 100%; object-fit: cover; overflow: clip; }
+      @media (prefers-reduced-motion: reduce) {
+        ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+      }
+    </style>
+    <script is:inline>
+      // Movimiento solo si el visitante no pidió reducirlo. Si los scripts no cargan,
+      // un temporizador quita la clase y todo el contenido queda visible.
+      (function () {
+        var d = document.documentElement;
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          d.classList.add('motion');
+          window.__motionGuard = setTimeout(function () { d.classList.remove('motion'); }, 3500);
+        }
+      })();
+    </script>
+    <slot name="head" />
+  </head>
+  <body data-page={page} data-progress={progress ? '' : undefined}>
+    <a class="skip sr-only-focusable" href="#main">{t(lang, 'nav.skip')}</a>
+    <Header lang={lang} alternates={alternates} page={page} />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer lang={lang} alternates={alternates} />
+    <script>
+      import '../scripts/main';
+    </script>
+  </body>
+</html>

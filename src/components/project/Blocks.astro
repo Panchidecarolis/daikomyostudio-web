@@ -1,0 +1,115 @@
+---
+/**
+ * Recorrido narrativo de un proyecto, compuesto desde su YAML.
+ * Sin JavaScript (o con movimiento reducido) cada bloque es una composición estática;
+ * con movimiento, narrative.ts agrega escala, revelado y fijación vinculadas al scroll.
+ */
+import Picture from '../Picture.astro';
+import { t, type Lang } from '../../i18n/ui';
+import { altFor, type Project } from '../../lib/projects';
+import { getMedia } from '../../lib/media';
+
+interface Props {
+  project: Project;
+  lang: Lang;
+}
+const { project, lang } = Astro.props;
+const blocks = project.data.blocks;
+const alt = (id: string) => altFor(project, id, lang);
+const kind = (id: string) => t(lang, `kind.${getMedia(id).kind}` as 'kind.photo');
+const SINGLE: Record<string, Record<string, [number, number]>> = {
+  s: { left: [2, 6], center: [5, 9], right: [8, 12] },
+  m: { left: [1, 7], center: [4, 10], right: [7, 13] },
+  l: { left: [1, 10], center: [2, 12], right: [4, 13] },
+  full: { left: [1, 13], center: [1, 13], right: [1, 13] },
+};
+---
+
+{blocks.length > 0 && (
+  <div class="blocks">
+    {blocks.map((b) => {
+      if (b.type === 'expand') {
+        return (
+          <section class="b-expand" data-block="expand" aria-label={alt(b.image)}>
+            <div class="frame">
+              <Picture id={b.image} alt={alt(b.image)} sizes="100vw" />
+            </div>
+          </section>
+        );
+      }
+      if (b.type === 'slit') {
+        return (
+          <section class="b-slit" data-block="slit" aria-label={alt(b.image)}>
+            <div class="frame">
+              <Picture id={b.image} alt={alt(b.image)} sizes="100vw" />
+            </div>
+          </section>
+        );
+      }
+      if (b.type === 'split') {
+        return (
+          <section class="b-split wrap" data-block="split" aria-label={`${t(lang, 'project.outside')} / ${t(lang, 'project.inside')}`}>
+            <div class="layer layer-out">
+              <Picture id={b.outside} alt={alt(b.outside)} sizes="100vw" />
+              <span class="lbl lbl-out">{t(lang, 'project.outside')}</span>
+            </div>
+            <div class="layer layer-in">
+              <Picture id={b.inside} alt={alt(b.inside)} sizes="100vw" />
+              <span class="lbl lbl-in">{t(lang, 'project.inside')}</span>
+            </div>
+            <i class="seam" aria-hidden="true"></i>
+          </section>
+        );
+      }
+      if (b.type === 'horizontal') {
+        return (
+          <section class="b-hz" data-block="horizontal">
+            <div class="track" data-track tabindex="0" aria-label={project.data.title[lang]}>
+              {b.images.map((id) => (
+                <figure>
+                  <Picture id={id} alt={alt(id)} sizes="(min-width: 768px) 60vw, 85vw" />
+                </figure>
+              ))}
+            </div>
+            <div class="hz-foot wrap">
+              <span class="num" data-counter>1 / {b.images.length}</span>
+              <span>{project.data.title[lang]}</span>
+            </div>
+          </section>
+        );
+      }
+      if (b.type === 'pair') {
+        return (
+          <section class="b-pair grid12 wrap">
+            {b.images.map((id) => (
+              <figure>
+                <Picture id={id} alt={alt(id)} sizes="(min-width: 768px) 58vw, 100vw" natural expose />
+                <figcaption class="caption"><span>{kind(id)}</span></figcaption>
+              </figure>
+            ))}
+          </section>
+        );
+      }
+      if (b.type === 'single') {
+        const [s, e] = SINGLE[b.size][b.align];
+        return (
+          <section class="b-single grid12 wrap" style={`--s:${s};--e:${e}`}>
+            <figure>
+              <Picture id={b.image} alt={alt(b.image)} sizes={b.size === 'full' ? '100vw' : '(min-width: 768px) 66vw, 100vw'} natural expose />
+              <figcaption class="caption"><span>{kind(b.image)}</span></figcaption>
+            </figure>
+          </section>
+        );
+      }
+      if (b.type === 'paragraph') {
+        const text = project.data.text[lang][b.index];
+        return text ? (
+          <section class="b-text grid12 wrap">
+            <p data-lines>{text}</p>
+          </section>
+        ) : null;
+      }
+      return null;
+    })}
+  </div>
+)}

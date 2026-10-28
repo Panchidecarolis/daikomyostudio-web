@@ -1,0 +1,80 @@
+# Proyecto académico (trabajo final de carrera). Autoría individual y reconocimientos: ver PENDIENTES.md
+order: 4
+featured: 1
+slug:
+  es: parque-cultural-monte-hermoso
+  en: monte-hermoso-cultural-park
+title:
+  es: Parque Cultural Monte Hermoso
+  en: Monte Hermoso Cultural Park
+year: "2025"
+status: academic
+program:
+  es: Equipamiento cultural · Paisaje
+  en: Cultural facility · Landscape
+location:
+  es: Monte Hermoso, Argentina
+  en: Monte Hermoso, Argentina
+role:
+  es: Trabajo final de carrera
+  en: Final degree project
+hero: pc-horizonte
+cover: pc-horizonte
+sequence: [pc-horizonte, pc-raumplan, pc-lectura]
+text:
+  es:
+    - >-
+      El Parque Cultural de Monte Hermoso surge del interés por repensar la arquitectura desde la conciencia del lugar,
+      entendiendo que toda forma construida responde al territorio que la recibe.
+    - >-
+      La propuesta no busca imitar el paisaje, sino inscribirse en él. Una arquitectura horizontal y transitable acompaña
+      la topografía, prolongando el territorio sobre sus cubiertas y diluyendo los límites entre interior y exterior.
+      Un paisaje habitado donde naturaleza, cultura y vida cotidiana encuentran un espacio común.
+  en:
+    - >-
+      The Monte Hermoso Cultural Park emerges from a desire to rethink architecture through an awareness of place,
+      recognizing that every built form responds to the territory it inhabits.
+    - >-
+      Rather than imitating the landscape, the project seeks to become part of it. A horizontal, walkable architecture
+      follows the natural topography, extending the terrain across its roofs and blurring the boundaries between inside
+      and outside. An inhabited landscape where nature, culture, and everyday life find a common ground.
+alt:
+  pc-horizonte:
+    es: Cubiertas verdes transitables que continúan la topografía, con senderos y pastizales
+    en: Walkable green roofs continuing the topography, with paths and grassland
+  pc-exterior:
+    es: Volúmenes bajos con cubiertas verdes que emergen del terreno bajo un cielo nublado
+    en: Low volumes with green roofs emerging from the ground under an overcast sky
+  pc-sendero:
+    es: Sendero curvo entre pastizales hacia los volúmenes semienterrados del parque
+    en: Curved path through grassland towards the park's half-buried volumes
+  pc-lectura:
+    es: Sala de lectura con ventana corrida a la altura del pastizal
+    en: Reading room with a continuous window at grass level
+  pc-raumplan:
+    es: Interior blanco con planos a distintos niveles y luz cenital
+    en: White interior with planes at different levels and light from above
+  pc-cubiertas:
+    es: Recorridos sobre las cubiertas verdes del conjunto
+    en: Paths across the green roofs of the complex
+  pc-biblioteca:
+    es: Biblioteca junto a la fachada vidriada, con vistas al paisaje
+    en: Library along the glazed façade, with views of the landscape
+  pc-recorrido:
+    es: Rampa peatonal que sube sobre las cubiertas hacia el horizonte
+    en: Pedestrian ramp rising over the roofs towards the horizon
+  pc-intermedio:
+    es: Espacio intermedio entre el café, la sala de lectura y la biblioteca
+    en: Intermediate space between the café, the reading room and the library
+blocks:
+  - type: expand
+    image: pc-exterior
+  - type: split
+    outside: pc-sendero
+    inside: pc-lectura
+  - type: paragraph
+    index: 1
+  - type: horizontal
+    images: [pc-raumplan, pc-cubiertas, pc-biblioteca, pc-recorrido]
+  - type: slit
+    image: pc-intermedio

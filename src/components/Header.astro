@@ -1,0 +1,57 @@
+---
+import { t, type Lang } from '../i18n/ui';
+import { routes, otherLang, type Alternates } from '../i18n/routes';
+import { INSTAGRAM_URL } from '../i18n/pages';
+
+interface Props {
+  lang: Lang;
+  alternates: Alternates;
+  page?: string;
+}
+const { lang, alternates, page } = Astro.props;
+const other = otherLang(lang);
+const nav = [
+  { key: 'projects', label: t(lang, 'nav.projects'), href: routes.projects[lang], current: page === 'projects' || page === 'project' },
+  { key: 'studio', label: t(lang, 'nav.studio'), href: routes.studio[lang], current: page === 'studio' },
+  { key: 'contact', label: t(lang, 'nav.contact'), href: routes.contact[lang], current: page === 'contact' },
+] as const;
+const langLink = (l: Lang) => ({ href: alternates[l], label: l.toUpperCase(), name: l === 'es' ? 'Español' : 'English' });
+---
+
+<header class="site-header" data-header>
+  <a class="wordmark" href={routes.home[lang]} aria-label={`DAIKOMYOESTUDIO — ${t(lang, 'nav.home')}`}>DAIKOMYO<span>ESTUDIO</span></a>
+  <div class="nav-right">
+    <nav class="nav-main" aria-label={t(lang, 'nav.main')}>
+      {nav.map((item) => <a class="u-link" href={item.href} aria-current={item.current ? 'page' : undefined}>{item.label}</a>)}
+    </nav>
+    <div class="lang" role="group" aria-label={t(lang, 'nav.lang')}>
+      {(['es', 'en'] as Lang[]).map((l, i) => (
+        <>
+          {i > 0 && <i aria-hidden="true">/</i>}
+          {l === lang ? (
+            <span aria-current="true" lang={l}>{l.toUpperCase()}</span>
+          ) : (
+            <a href={langLink(l).href} hreflang={l} lang={l} data-lang-switch aria-label={langLink(l).name}>{langLink(l).label}</a>
+          )}
+        </>
+      ))}
+    </div>
+    <button class="menu-btn u-link" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-open>{t(lang, 'nav.menu')}</button>
+  </div>
+  <span class="progress" aria-hidden="true" data-progress-bar></span>
+</header>
+
+<div class="menu" id="site-menu" role="dialog" aria-modal="true" aria-label={t(lang, 'nav.menu')} hidden data-menu>
+  <div class="menu-top">
+    <span class="wordmark" aria-hidden="true">DAIKOMYO<span>ESTUDIO</span></span>
+    <button class="u-link" type="button" data-menu-close>{t(lang, 'nav.close')}</button>
+  </div>
+  <nav class="menu-links" aria-label={t(lang, 'nav.main')}>
+    <a href={routes.home[lang]}><span>{t(lang, 'nav.home')}</span></a>
+    {nav.map((item) => <a href={item.href} aria-current={item.current ? 'page' : undefined}><span>{item.label}</span></a>)}
+  </nav>
+  <div class="menu-foot">
+    <a class="u-link" href={alternates[other]} hreflang={other} lang={other} data-lang-switch>{other === 'en' ? 'English' : 'Español'}</a>
+    <a class="u-link" href={INSTAGRAM_URL} target="_blank" rel="noopener">Instagram</a>
+  </div>
+</div>

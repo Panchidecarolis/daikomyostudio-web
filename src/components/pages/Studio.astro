@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { type Lang } from '../../i18n/ui';
+import { routes, projectUrl, pageAlternates } from '../../i18n/routes';
+import { studio, practice } from '../../i18n/pages';
+import { getProjects } from '../../lib/projects';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = studio[lang];
+const pr = practice[lang];
+const all = await getProjects();
+const groups = {
+  architecture: all.filter((p) => p.data.status === 'built' || p.data.status === 'project'),
+  competitions: all.filter((p) => p.data.status === 'competition' || p.data.status === 'academic'),
+  visualization: all.filter((p) => p.data.status === 'visualization'),
+};
+---
+
+<BaseLayout lang={lang} title={s.title} description={s.description} alternates={pageAlternates('studio')} page="studio">
+  <section class="studio-man grid12 wrap">
+    <h1 class="label">{s.title}</h1>
+    <div class="txt" data-illuminate>
+      {s.manifesto.map((p) => <p>{p}</p>)}
+    </div>
+  </section>
+
+  <section class="practice grid12 wrap" aria-labelledby="practice-title">
+    <h2 class="label" id="practice-title">{pr.title}</h2>
+    <div class="cols">
+      {pr.groups.map((g) => (
+        <div>
+          <h3>{g.label}</h3>
+          <ul>
+            {groups[g.key].map((p) => (
+              <li><a href={projectUrl(lang, p.data.slug)}>{p.data.title[lang]}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-bottom:4rem">
+    <a class="p-next" href={routes.contact[lang]}>
+      <span class="label">{lang === 'es' ? 'Contacto' : 'Contact'}</span>
+      <span class="t">{lang === 'es' ? 'Conversemos' : 'Get in touch'}</span>
+    </a>
+  </section>
+</BaseLayout>

@@ -1,0 +1,24 @@
+{
+  "name": "daikomyostudio-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Sitio web de DAIKOMYOESTUDIO — estudio de arquitectura.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "media": "node scripts/optimize-images.mjs"
+  },
+  "engines": {
+    "node": ">=20.3.0"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.0",
+    "@fontsource-variable/instrument-sans": "^5.0.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "astro": "^5.0.0",
+    "gsap": "^3.12.5",
+    "tailwindcss": "^4.0.0"
+  }
+}

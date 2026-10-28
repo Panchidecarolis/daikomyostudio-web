@@ -1,0 +1,56 @@
+# Cliente: pendiente de autorización para publicar (ver PENDIENTES.md). Ubicación sin confirmar.
+order: 2
+featured: 4
+slug:
+  es: conversatorio-de-fisica-cuantica
+  en: conversatorio-for-quantum-physics
+title:
+  es: Conversatorio de Física Cuántica
+  en: Conversatorio for Quantum Physics
+year: "2026–2027"
+status: project
+program:
+  es: Espacio de diálogo y reflexión
+  en: Space for dialogue and reflection
+hero: conv-ext
+cover: conv-ext
+sequence: [conv-ext, conv-int, conv-paisaje]
+text:
+  es:
+    - El Conversatorio propone un espacio para el diálogo y la reflexión, donde la palabra circula sin jerarquías.
+    - >-
+      La promenade arquitectónica comienza con una rampa que establece una continuidad entre el paisaje y el edificio,
+      incorporando el tiempo y el movimiento a la experiencia espacial.
+    - >-
+      En su interior, la geometría circular evoca la caverna primitiva: un refugio donde la madera, la penumbra y la luz
+      cenital construyen una atmósfera de contemplación e introspección.
+  en:
+    - >-
+      The Conversatorio for Quantum Physics stands as a place for dialogue and reflection, where ideas are exchanged
+      without hierarchy.
+    - >-
+      The architectural promenade begins with a ramp that establishes continuity between landscape and building,
+      introducing time and movement into the spatial experience.
+    - >-
+      Inside, the circular geometry evokes the primitive cave: a refuge where wood, shadow, and light from above shape an
+      atmosphere of contemplation and introspection.
+alt:
+  conv-ext:
+    es: Volumen circular de madera con alero amplio sobre un pastizal, con sierras al fondo
+    en: Circular timber volume with a wide eave over grassland, with hills in the background
+  conv-paisaje:
+    es: El edificio circular en el paisaje abierto
+    en: The circular building in the open landscape
+  conv-int:
+    es: Interior circular de madera con gradas y lucernario central
+    en: Circular timber interior with stepped seating and a central skylight
+  conv-estructura:
+    es: Dibujo de la estructura radial de la cubierta
+    en: Drawing of the radial roof structure
+blocks:
+  - type: expand
+    image: conv-paisaje
+  - type: paragraph
+    index: 2
+  - type: pair
+    images: [conv-int, conv-estructura]
