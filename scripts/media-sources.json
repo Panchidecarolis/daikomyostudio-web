@@ -178,21 +178,16 @@
     "trim": "black"
   },
   "st-croquis-1": {
-    "file": "IMG_8117_preview.png",
+    "file": "inkc_croquis-1.png",
     "kind": "drawing"
   },
   "st-croquis-2": {
-    "file": "IMG_8114_preview.png",
+    "file": "inkc_croquis-2.png",
     "kind": "drawing"
   },
   "st-croquis-3": {
-    "file": "IMG_2934.JPG",
+    "file": "inkc_croquis-3.png",
     "kind": "drawing"
-  },
-  "st-dibujo": {
-    "file": "1.1.png",
-    "kind": "drawing",
-    "pad": 0.04
   },
   "st-proceso": {
     "file": "IMG_2967_preview.png",
