@@ -1,4 +1,5 @@
-# Ubicación y traducción oficial del nombre al inglés: ver PENDIENTES.md
+# Textos y datos: "Centro de capacitacion - carpeta para presupuesto.pdf" (memoria descriptiva, planos).
+# Traducción oficial del nombre al inglés: ver PENDIENTES.md
 order: 3
 slug:
   es: centro-de-capacitacion-de-peritos-de-granos
@@ -11,46 +12,114 @@ status: project
 program:
   es: Equipamiento educativo
   en: Educational facility
+location:
+  es: Ingeniero White, Bahía Blanca
+  en: Ingeniero White, Bahía Blanca
 client: URGARA
+details:
+  - label: { es: Terreno, en: Site }
+    value: { es: 10 × 30 m (300 m²), en: 10 × 30 m (300 m²) }
+  - label: { es: Superficie cubierta, en: Built area }
+    value: 180 m²
 hero: cc-fachada
 heroLayout: contained
 cover: cc-fachada
-sequence: [cc-fachada, cc-axo]
+sequence: [cc-fachada, cc-aulas, cc-axo]
 text:
   es:
     - >-
-      La búsqueda arquitectónica toma como punto de partida las antiguas viviendas de chapa y madera de los trabajadores
-      ferroportuarios de Ingeniero White, cuya construcción liviana respondía a las condiciones del suelo arcilloso
-      expansivo y contribuyó a definir la identidad del lugar.
+      En un entorno portuario e industrial de Ingeniero White, el Centro se emplaza sobre un terreno baldío de 10 × 30 m.
+      El suelo, arcilloso y expansivo, sufrió hundimientos y anegamientos que afectaron a la vivienda que existía en el
+      lote, y se convierte en la principal condición del diseño estructural.
     - >-
-      Esa misma condición del territorio orienta hoy el proyecto, que reinterpreta aquella lógica constructiva mediante
-      una estructura metálica liviana y una sucesión de cubiertas inclinadas que incorporan luz natural. Una arquitectura
-      que encuentra en la memoria del lugar una respuesta para el presente.
+      La búsqueda arquitectónica toma como punto de partida las antiguas viviendas de chapa y madera de los trabajadores
+      ferroportuarios de Ingeniero White, cuya construcción liviana respondía a ese mismo suelo y contribuyó a definir la
+      identidad del lugar.
+    - >-
+      El edificio se desarrolla íntegramente en planta baja: 180 m² cubiertos y 120 m² al aire libre, entre un patio de
+      ingreso, un patio central de uso colectivo y la expansión de la sala de reuniones. Dos aulas flexibles pueden
+      integrarse en un único espacio mediante tabiques móviles; a lo largo de las medianeras se concentran el mobiliario
+      fijo y los servicios, y una circulación longitudinal vincula el frente con el fondo.
+    - >-
+      Una estructura metálica liviana de pórticos independientes sostiene una cubierta inclinada orientada al sur, que
+      incorpora luz natural difusa y ventilación cruzada. El sistema liviano absorbe mejor las deformaciones del suelo y
+      retoma el carácter industrial del lugar: una arquitectura que encuentra en la memoria del trabajo portuario y
+      ferroviario una respuesta para el presente.
   en:
     - >-
-      The architectural approach draws from the traditional metal-clad and timber houses of Ingeniero White's railway
-      and port workers, whose lightweight construction responded to the expansive clay soil and helped shape the
-      identity of the place.
+      Set in the port and industrial surroundings of Ingeniero White, the Centre occupies a vacant 10 × 30 m plot. The
+      expansive clay soil, which had suffered subsidence and flooding that damaged the house previously on the site,
+      becomes the main condition for the structural design.
     - >-
-      That same condition of the land continues to inform the project today, reinterpreting this construction logic
-      through a lightweight steel structure and a sequence of sloping roofs that bring natural light into the interior.
-      An architecture that finds in the memory of the place a response to the present.
+      The architectural approach draws from the traditional metal-clad and timber houses of Ingeniero White's railway
+      and port workers, whose lightweight construction responded to that same soil and helped shape the identity of the
+      place.
+    - >-
+      The building unfolds entirely on the ground floor: 180 m² indoors and 120 m² of open space, between an entrance
+      patio, a shared central courtyard and an extension of the meeting room. Two flexible classrooms can be joined into
+      a single space with movable partitions; fixed furniture and services run along the party walls, and a longitudinal
+      corridor links the front of the site with the back.
+    - >-
+      A lightweight steel structure of independent frames supports a south-facing sloping roof that brings in diffuse
+      daylight and cross ventilation. The light system better absorbs the movements of the soil and takes up the
+      industrial character of the place: an architecture that finds in the memory of port and railway work a response
+      to the present.
 alt:
   cc-fachada:
     es: Fachada blanca con cubierta inclinada y cerramiento de varillas verticales
     en: White façade with a pitched roof and a screen of vertical rods
+  cc-acceso:
+    es: Espacio exterior de acceso entre muros blancos y carpinterías de vidrio
+    en: Outdoor entrance space between white walls and glazed doors
+  cc-hall:
+    es: Hall de recepción con mueble de madera y mesada de acero
+    en: Reception hall with timber shelving and a steel counter
+  cc-aulas:
+    es: Interior de las aulas con lucernarios y paneles divisorios de madera
+    en: Classroom interior with rooflights and timber partition panels
+  cc-aulas-abiertas:
+    es: Las dos aulas integradas bajo la cubierta inclinada
+    en: The two classrooms joined beneath the sloping roof
+  cc-reuniones:
+    es: Sala de reuniones con iluminación cenital y vista al patio
+    en: Meeting room with overhead light and a view of the courtyard
+  cc-circulacion:
+    es: Circulación longitudinal blanca con luz al fondo
+    en: White longitudinal corridor with light at the far end
+  cc-corte-persp:
+    es: Corte longitudinal con la sucesión de cubiertas inclinadas
+    en: Longitudinal section showing the sequence of sloping roofs
+  cc-planta:
+    es: Planta baja del centro con aulas, sala de reuniones y patios
+    en: Ground-floor plan with classrooms, meeting room and courtyards
   cc-cortes:
-    es: Cortes con la sucesión de cubiertas inclinadas que incorporan luz natural
-    en: Sections showing the sequence of sloping roofs bringing in natural light
+    es: Cortes transversales con la sucesión de cubiertas inclinadas que incorporan luz natural
+    en: Cross sections showing the sloping roofs bringing in natural light
   cc-axo:
-    es: Axonometrías de la estructura metálica liviana
-    en: Axonometric drawings of the lightweight steel structure
+    es: Axonometría del edificio con su cubierta de chapa
+    en: Axonometric drawing of the building and its metal roof
 blocks:
+  - type: pair
+    images: [cc-acceso, cc-hall]
+  - type: paragraph
+    index: 2
   - type: single
-    image: cc-cortes
+    image: cc-planta
+    size: full
+    align: center
+  - type: horizontal
+    images: [cc-aulas, cc-reuniones, cc-circulacion, cc-aulas-abiertas]
+  - type: paragraph
+    index: 3
+  - type: single
+    image: cc-corte-persp
     size: full
     align: center
   - type: single
-    image: cc-axo
+    image: cc-cortes
     size: l
     align: center
+  - type: single
+    image: cc-axo
+    size: m
+    align: right

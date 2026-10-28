@@ -45,6 +45,8 @@ const projects = defineCollection({
     client: z.string().optional(),
     architecture: z.string().optional(),
     role: localized.optional(),
+    // datos adicionales tomados de la documentación del estudio (superficie, autorías, dirección de obra…)
+    details: z.array(z.object({ label: localized, value: z.union([z.string(), localized]) })).default([]),
     hero: mediaId,
     heroLayout: z.enum(['full', 'contained']).default('full'),
     cover: mediaId,

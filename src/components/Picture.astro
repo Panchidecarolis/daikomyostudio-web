@@ -16,11 +16,13 @@ interface Props {
   vt?: string;
   hidden?: boolean;
   style?: string;
+  /** encuadre (object-position), p. ej. "50% 40%" */
+  position?: string;
 }
 
-const { id, alt, sizes = '100vw', class: cls = '', priority = false, expose = false, natural = false, vt, hidden = false, style = '' } = Astro.props;
+const { id, alt, sizes = '100vw', class: cls = '', priority = false, expose = false, natural = false, vt, hidden = false, style = '', position } = Astro.props;
 const m = getMedia(id);
-const styles = [`--ph-bg:${m.bg}`, `--ir:${ratio(id)}`, vt ? `view-transition-name:${vt}` : '', style].filter(Boolean).join(';');
+const styles = [`--ph-bg:${m.bg}`, `--ir:${ratio(id)}`, vt ? `view-transition-name:${vt}` : '', position ? `--op:${position}` : '', style].filter(Boolean).join(';');
 ---
 
 <div class:list={['ph', cls, { 'is-natural': natural }]} style={styles} data-expose={expose ? '' : undefined} aria-hidden={hidden ? 'true' : undefined}>

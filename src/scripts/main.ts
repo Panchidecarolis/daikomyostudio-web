@@ -11,6 +11,7 @@ import { initHero } from './hero';
 import { initGrid } from './grid';
 import { initNarrative } from './narrative';
 import { initIlluminate } from './illuminate';
+import { initContactForm } from './form';
 
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({ ignoreMobileResize: true });
@@ -22,6 +23,7 @@ const motion = root.classList.contains('motion');
 
 initNav(motion);
 initGrid(motion);
+initContactForm();
 
 if (motion) {
   try {

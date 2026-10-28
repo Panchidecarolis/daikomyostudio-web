@@ -60,4 +60,12 @@ export function initReveal(): void {
       });
     },
   });
+
+  // movimiento mínimo vinculado al scroll en imágenes señaladas con [data-drift]
+  gsap.utils.toArray<HTMLElement>('[data-drift] img').forEach((img) => {
+    gsap.fromTo(img, { yPercent: -3, scale: 1.06 }, {
+      yPercent: 3, scale: 1.06, ease: 'none',
+      scrollTrigger: { trigger: img.closest('[data-drift]'), start: 'top bottom', end: 'bottom top', scrub: true },
+    });
+  });
 }

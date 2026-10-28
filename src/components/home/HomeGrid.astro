@@ -1,0 +1,59 @@
+---
+/**
+ * Grilla modular del inicio: los ocho proyectos en tres módulos geométricos.
+ *  A · una imagen protagonista a la izquierda y dos apiladas a la derecha
+ *  B · una fila de tres imágenes alineadas
+ *  C · módulo invertido: una imagen angosta y una ancha
+ * Todos los módulos comparten el mismo eje de 6 columnas y la misma calle.
+ */
+import ProjectCard from '../ProjectCard.astro';
+import type { Lang } from '../../i18n/ui';
+import type { Project } from '../../lib/projects';
+
+interface Props {
+  projects: Project[];
+  lang: Lang;
+}
+const { projects, lang } = Astro.props;
+/** orden editorial (id = nombre del archivo YAML); los que no figuren se agregan al final */
+const ORDER = [
+  'parque-cultural-monte-hermoso', 'cafe-par-tres', 'conversatorio-fisica-cuantica',
+  'spaces-for-fashion', 'centro-capacitacion-peritos-granos', 'balvanera',
+  'cenotafio-elevador-5', 'riyadh-dream-villas',
+];
+const sorted = [
+  ...ORDER.map((id) => projects.find((p) => p.id === id)).filter((p): p is Project => Boolean(p)),
+  ...projects.filter((p) => !ORDER.includes(p.id)),
+];
+const a = sorted.slice(0, 3);
+const b = sorted.slice(3, 6);
+const c = sorted.slice(6, 8);
+const rest = sorted.slice(8);
+const big = '(min-width: 1024px) 64vw, 100vw';
+const small = '(min-width: 1024px) 32vw, (min-width: 640px) 50vw, 50vw';
+---
+
+<div class="mgrid" data-grid>
+  {a.length === 3 && (
+    <div class="mg mg-a">
+      <ProjectCard project={a[0]} lang={lang} class="c1" sizes={big} extra={false} />
+      <ProjectCard project={a[1]} lang={lang} class="c2" sizes={small} extra={false} />
+      <ProjectCard project={a[2]} lang={lang} class="c3" sizes={small} extra={false} />
+    </div>
+  )}
+  {b.length > 0 && (
+    <div class="mg mg-b">
+      {b.map((p, i) => <ProjectCard project={p} lang={lang} class={`c${i + 1}`} sizes={small} extra={false} />)}
+    </div>
+  )}
+  {c.length > 0 && (
+    <div class="mg mg-c">
+      {c.map((p, i) => <ProjectCard project={p} lang={lang} class={`c${i + 1}`} sizes={i === 0 ? small : big} extra={false} />)}
+    </div>
+  )}
+  {rest.length > 0 && (
+    <div class="mg mg-b">
+      {rest.map((p, i) => <ProjectCard project={p} lang={lang} class={`c${(i % 3) + 1}`} sizes={small} extra={false} />)}
+    </div>
+  )}
+</div>

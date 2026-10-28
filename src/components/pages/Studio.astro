@@ -1,27 +1,93 @@
 ---
+/**
+ * Estudio: ensayo visual. El manifiesto se lee por partes, cada una acompañada
+ * por una imagen del estudio (proyecto, croquis, obra), y cierra con dibujos y procesos.
+ */
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { type Lang } from '../../i18n/ui';
+import Picture from '../Picture.astro';
+import { t, type Lang } from '../../i18n/ui';
 import { routes, projectUrl, pageAlternates } from '../../i18n/routes';
 import { studio, practice } from '../../i18n/pages';
-import { getProjects } from '../../lib/projects';
+import { getProjects, altFor } from '../../lib/projects';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const s = studio[lang];
 const pr = practice[lang];
 const all = await getProjects();
+const byId = (id: string) => all.find((p) => p.id === id);
+const conv = byId('conversatorio-fisica-cuantica');
+const ceno = byId('cenotafio-elevador-5');
 const groups = {
   architecture: all.filter((p) => p.data.status === 'built' || p.data.status === 'project'),
   competitions: all.filter((p) => p.data.status === 'competition' || p.data.status === 'academic'),
   visualization: all.filter((p) => p.data.status === 'visualization'),
 };
+const k = (key: 'photo' | 'render' | 'drawing') => t(lang, `kind.${key}`);
+const drawings = [
+  { id: 'st-croquis-2', alt: s.alt.croquis2, cap: k('drawing') },
+  { id: 'st-croquis-3', alt: s.alt.croquis3, cap: k('drawing') },
+  { id: 'st-dibujo', alt: s.alt.dibujo, cap: k('drawing') },
+  { id: 'st-mesa', alt: s.alt.mesa, cap: s.processCaption },
+];
 ---
 
-<BaseLayout lang={lang} title={s.title} description={s.description} alternates={pageAlternates('studio')} page="studio">
-  <section class="studio-man grid12 wrap">
+<BaseLayout lang={lang} title={s.title} description={s.description} alternates={pageAlternates('studio')} page="studio" ogImage="/og/conversatorio-fisica-cuantica.jpg">
+  <section class="st-intro grid12 wrap">
     <h1 class="label">{s.title}</h1>
-    <div class="txt" data-illuminate>
-      {s.manifesto.map((p) => <p>{p}</p>)}
+    <p class="st-title" data-lines>{t(lang, 'home.manifesto')}</p>
+  </section>
+
+  <section class="st-essay grid12 wrap st-right" aria-label={s.title}>
+    <div class="st-text"><p data-lines>{s.manifesto[0]}</p></div>
+    {conv && (
+      <figure class="st-fig st-fig-l" data-drift>
+        <Picture id="conv-int" alt={altFor(conv, 'conv-int', lang)} sizes="(min-width: 1024px) 50vw, 100vw" natural />
+        <figcaption class="caption"><a class="u-link" href={projectUrl(lang, conv.data.slug)}>{conv.data.title[lang]}</a><span>{k('render')}</span></figcaption>
+      </figure>
+    )}
+  </section>
+
+  <section class="st-essay grid12 wrap st-left">
+    <figure class="st-fig st-fig-m">
+      <Picture id="st-croquis-1" alt={s.alt.croquis1} sizes="(min-width: 1024px) 42vw, 100vw" natural expose />
+      <figcaption class="caption"><span>{k('drawing')}</span></figcaption>
+    </figure>
+    <div class="st-text"><p data-lines>{s.manifesto[1]}</p></div>
+  </section>
+
+  <section class="st-essay grid12 wrap st-right">
+    <div class="st-text"><p data-lines>{s.manifesto[2]}</p></div>
+    <figure class="st-fig st-fig-s">
+      <Picture id="st-proceso" alt={s.alt.proceso} sizes="(min-width: 1024px) 34vw, 100vw" natural expose />
+      <figcaption class="caption"><span>{s.processCaption}</span></figcaption>
+    </figure>
+  </section>
+
+  {ceno && (
+    <section class="st-wide wrap">
+      <figure>
+        <Picture id="ceno-obra" alt={altFor(ceno, 'ceno-obra', lang)} sizes="(min-width: 1024px) 40vw, 100vw" natural expose />
+        <figcaption class="caption"><a class="u-link" href={projectUrl(lang, ceno.data.slug)}>{ceno.data.title[lang]}</a><span>{k('photo')}</span></figcaption>
+      </figure>
+      <figure>
+        <Picture id="ceno-placas" alt={altFor(ceno, 'ceno-placas', lang)} sizes="(min-width: 1024px) 30vw, 100vw" natural expose />
+        <figcaption class="caption"><span>{k('photo')}</span></figcaption>
+      </figure>
+    </section>
+  )}
+
+  <section class="st-process wrap" aria-labelledby="process-title">
+    <div class="section-head">
+      <h2 id="process-title">{s.processTitle}</h2>
+    </div>
+    <div class="st-strip">
+      {drawings.map((d) => (
+        <figure>
+          <Picture id={d.id} alt={d.alt} sizes="(min-width: 1024px) 24vw, 50vw" natural expose />
+          <figcaption class="caption"><span>{d.cap}</span></figcaption>
+        </figure>
+      ))}
     </div>
   </section>
 
@@ -41,10 +107,14 @@ const groups = {
     </div>
   </section>
 
-  <section class="wrap" style="padding-bottom:4rem">
-    <a class="p-next" href={routes.contact[lang]}>
-      <span class="label">{lang === 'es' ? 'Contacto' : 'Contact'}</span>
-      <span class="t">{lang === 'es' ? 'Conversemos' : 'Get in touch'}</span>
+  <nav class="st-close grid12 wrap" aria-label={s.title}>
+    <a class="p-next" href={routes.projects[lang]}>
+      <span class="label">{t(lang, 'nav.projects')}</span>
+      <span class="t">{s.toProjects}</span>
     </a>
-  </section>
+    <a class="p-next" href={routes.contact[lang]}>
+      <span class="label">{t(lang, 'nav.contact')}</span>
+      <span class="t">{s.toContact}</span>
+    </a>
+  </nav>
 </BaseLayout>

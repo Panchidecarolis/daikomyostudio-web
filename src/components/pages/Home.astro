@@ -1,23 +1,29 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Picture from '../Picture.astro';
-import ProjectGrid from '../ProjectGrid.astro';
+import HomeGrid from '../home/HomeGrid.astro';
 import { t, type Lang } from '../../i18n/ui';
 import { routes, projectUrl, pageAlternates } from '../../i18n/routes';
-import { getProjects, getFeatured, altFor, shortYear } from '../../lib/projects';
+import { getProjects, altFor, shortYear } from '../../lib/projects';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const all = await getProjects();
-const featured = await getFeatured();
-const lead = featured[0];
-const built = all.find((p) => p.id === 'cafe-par-tres');
+
+/** Portada: Cenotafio / Elevador 5, imagen original "aerea copia.jpg" (media id: ceno-render). */
+const HERO = { project: 'cenotafio-elevador-5', image: 'ceno-render', position: '50% 58%' };
+/** Sección inferior con expansión al hacer scroll: Riyadh Dream Villas, "Majlis.jpg" (media id: rdv-majlis). */
+const CLOSING = { project: 'riyadh-dream-villas', image: 'rdv-majlis', position: '50% 32%', paragraph: 1 };
+
+const lead = all.find((p) => p.id === HERO.project) ?? all[0];
+const closing = all.find((p) => p.id === CLOSING.project);
 const meta = [lead.data.location?.[lang], lead.data.year, t(lang, `status.${lead.data.status}` as 'status.built')].filter(Boolean).join(' · ');
 const orgLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'DAIKOMYOESTUDIO',
   url: 'https://daikomo.netlify.app/',
+  email: 'daikomyostudio@gmail.com',
   sameAs: ['https://www.instagram.com/daikomyostudio/'],
 };
 ---
@@ -27,7 +33,7 @@ const orgLd = {
 
   <section class="hero" data-hero aria-label={lead.data.title[lang]}>
     <div class="hero-plate" data-hero-plate>
-      <Picture id={lead.data.hero} alt={altFor(lead, lead.data.hero, lang)} sizes="100vw" priority />
+      <Picture id={HERO.image} alt={altFor(lead, HERO.image, lang)} sizes="100vw" priority position={HERO.position} />
     </div>
     <span class="hero-horizon" aria-hidden="true" data-hero-horizon></span>
     <div class="hero-cap">
@@ -48,19 +54,19 @@ const orgLd = {
       <h2 id="sel-title">{t(lang, 'home.selected')}</h2>
       <a class="arrow-link" href={routes.projects[lang]}><span class="u-static">{t(lang, 'home.all')}</span><span aria-hidden="true">→</span></a>
     </div>
-    <ProjectGrid projects={featured} lang={lang} />
+    <HomeGrid projects={all} lang={lang} />
   </section>
 
-  {built && (
+  {closing && (
     <div class="blocks" style="padding-bottom:0">
-      <section class="b-expand" data-block="expand" aria-label={built.data.title[lang]}>
+      <section class="b-expand" data-block="expand" aria-label={closing.data.title[lang]}>
         <div class="frame">
-          <Picture id="p3-muro" alt={altFor(built, 'p3-muro', lang)} sizes="100vw" />
+          <Picture id={CLOSING.image} alt={altFor(closing, CLOSING.image, lang)} sizes="100vw" position={CLOSING.position} />
         </div>
       </section>
       <section class="b-text grid12 wrap">
-        <p data-lines>{built.data.text[lang][0]}</p>
-        <a class="arrow-link home-built-link" href={projectUrl(lang, built.data.slug)}><span class="u-static">{built.data.title[lang]}</span><span aria-hidden="true">→</span></a>
+        <p data-lines>{closing.data.text[lang][CLOSING.paragraph]}</p>
+        <a class="arrow-link home-built-link" href={projectUrl(lang, closing.data.slug)}><span class="u-static">{closing.data.title[lang]}</span><span aria-hidden="true">→</span></a>
       </section>
     </div>
   )}
