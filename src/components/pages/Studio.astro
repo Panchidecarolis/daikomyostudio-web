@@ -39,7 +39,7 @@ const drawings = [
   </section>
 
   <section class="st-essay grid12 wrap st-right" aria-label={s.title}>
-    <div class="st-text"><p data-lines>{s.manifesto[0]}</p></div>
+    <div class="st-text"><p data-lines set:html={s.manifesto[0]} /></div>
     {conv && (
       <figure class="st-fig st-fig-l" data-drift>
         <Picture id="conv-int" alt={altFor(conv, 'conv-int', lang)} sizes="(min-width: 1024px) 50vw, 100vw" natural />
@@ -53,11 +53,11 @@ const drawings = [
       <Picture id="st-croquis-1" alt={s.alt.croquis1} sizes="(min-width: 1024px) 42vw, 100vw" natural expose />
       <figcaption class="caption"><span>{k('drawing')}</span></figcaption>
     </figure>
-    <div class="st-text"><p data-lines>{s.manifesto[1]}</p></div>
+    <div class="st-text"><p data-lines set:html={s.manifesto[1]} /></div>
   </section>
 
   <section class="st-essay grid12 wrap st-right">
-    <div class="st-text"><p data-lines>{s.manifesto[2]}</p></div>
+    <div class="st-text"><p data-lines set:html={s.manifesto[2]} /></div>
     <figure class="st-fig st-fig-s">
       <Picture id="st-proceso" alt={s.alt.proceso} sizes="(min-width: 1024px) 34vw, 100vw" natural expose />
       <figcaption class="caption"><span>{s.processCaption}</span></figcaption>
@@ -81,10 +81,12 @@ const drawings = [
     <div class="section-head">
       <h2 id="process-title">{s.processTitle}</h2>
     </div>
-    <div class="st-strip">
+    <div class="st-strip" data-lightbox>
       {drawings.map((d) => (
         <figure>
-          <Picture id={d.id} alt={d.alt} sizes="(min-width: 1024px) 24vw, 50vw" natural expose />
+          <button class="lb-item" type="button" data-lightbox-item aria-label={`${t(lang, 'lightbox.open')}: ${d.alt}`} aria-haspopup="dialog">
+            <Picture id={d.id} alt={d.alt} sizes="(min-width: 1024px) 24vw, 50vw" natural expose />
+          </button>
           <figcaption class="caption"><span>{d.cap}</span></figcaption>
         </figure>
       ))}

@@ -23,8 +23,10 @@ details:
   - label: { es: Dirección de obra, en: Site management }
     value: TERRA Ingeniería S.A.
 hero: ceno-render
-cover: ceno-obra
-sequence: [ceno-obra, ceno-placas, ceno-render]
+# Portada en grilla, tarjetas y ficha: "aerea copia.jpg" (mismo archivo que la portada del inicio)
+cover: ceno-render
+coverPosition: 50% 55%
+sequence: [ceno-render, ceno-obra, ceno-placas]
 text:
   es:
     - >-

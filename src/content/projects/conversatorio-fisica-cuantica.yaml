@@ -1,4 +1,5 @@
-# Cliente: pendiente de autorización para publicar (ver PENDIENTES.md). Ubicación sin confirmar.
+# Textos, ubicación e imágenes: "Conversatorio ANTEPROYECTO - Cotización" (PDF del estudio, memoria descriptiva y planos).
+# Cliente: pendiente de autorización para publicar (ver PENDIENTES.md). No se publica.
 order: 2
 featured: 4
 slug:
@@ -12,28 +13,66 @@ status: project
 program:
   es: Espacio de diálogo y reflexión
   en: Space for dialogue and reflection
+location:
+  es: San Andrés de la Sierra, Buenos Aires
+  en: San Andrés de la Sierra, Buenos Aires
+details:
+  - label: { es: Título de la propuesta, en: Proposal title }
+    value: { es: Las curvas del tiempo, en: The curves of time }
 hero: conv-ext
 cover: conv-ext
 sequence: [conv-ext, conv-int, conv-paisaje]
 text:
   es:
-    - El Conversatorio propone un espacio para el diálogo y la reflexión, donde la palabra circula sin jerarquías.
     - >-
-      La promenade arquitectónica comienza con una rampa que establece una continuidad entre el paisaje y el edificio,
-      incorporando el tiempo y el movimiento a la experiencia espacial.
+      En San Andrés de la Sierra, el Conversatorio se erige como un hito en el paisaje serrano. Su nombre une el verbo
+      conversar con el sufijo -torio, que nombra lugares —como laboratorio u observatorio—: es un espacio para el
+      intercambio de ideas y la reflexión crítica a través del diálogo abierto.
     - >-
-      En su interior, la geometría circular evoca la caverna primitiva: un refugio donde la madera, la penumbra y la luz
-      cenital construyen una atmósfera de contemplación e introspección.
+      Como en una mesa redonda, no existe un lugar privilegiado. El círculo, forma ancestral que desde siempre reunió a
+      las personas para conversar, es un espacio flexible y sin jerarquías, y es el que da vida al proyecto.
+    - >-
+      El cubismo de Picasso y la física de Einstein comparten una misma inquietud: representar una realidad que no es
+      plana, fija ni predecible. Aquí, esa cuarta dimensión es el recorrido. Una rampa genera un continuum espacial
+      entre el paisaje y el edificio, y permite tomar conciencia del lugar antes de entrar.
+    - >-
+      La forma no compite con el entorno: lo imita y evoca la caverna primitiva, un refugio de contemplación. Tres
+      círculos —la cubierta, la estructura y el espacio principal— organizan el edificio. Su geometría curva responde a
+      los vientos serranos: no hay fachadas completamente expuestas y las presiones se distribuyen alrededor del volumen.
+    - >-
+      En el interior, la disposición circular acerca a los participantes hacia el centro; la forma y la madera
+      controlan la reverberación y dan una acústica adecuada para la palabra. Una sala central flexible, para charlas,
+      debates y encuentros, se rodea de un vestíbulo de acceso, sanitario, sectores de lectura, biblioteca y lugares para
+      exhibir libros y esculturas.
+    - >-
+      La luz cenital que entra por el óculo enmarca el espacio central y señala el corazón del proyecto. La penumbra
+      interior intensifica su presencia y construye una atmósfera solemne de contemplación e introspección: un lugar
+      donde las preguntas sobre la existencia se encuentran con las preguntas sobre el universo.
   en:
     - >-
-      The Conversatorio for Quantum Physics stands as a place for dialogue and reflection, where ideas are exchanged
-      without hierarchy.
+      In San Andrés de la Sierra, the Conversatorio stands as a landmark in the hill landscape. Its name joins the
+      Spanish verb conversar, to converse, with the suffix -torio, which names places —as in laboratorio or
+      observatorio—: it is a space for exchanging ideas and for critical reflection through open dialogue.
     - >-
-      The architectural promenade begins with a ramp that establishes continuity between landscape and building,
-      introducing time and movement into the spatial experience.
+      As at a round table, there is no privileged place. The circle, an ancestral form that has always gathered people
+      to talk, is a flexible space without hierarchy, and it is what gives life to the project.
     - >-
-      Inside, the circular geometry evokes the primitive cave: a refuge where wood, shadow, and light from above shape an
-      atmosphere of contemplation and introspection.
+      Picasso's cubism and Einstein's physics share the same concern: to represent a reality that is neither flat, fixed
+      nor predictable. Here, that fourth dimension is the journey. A ramp creates a spatial continuum between landscape
+      and building, and brings awareness of the place before entering.
+    - >-
+      The form does not compete with its surroundings: it imitates them and evokes the primitive cave, a refuge for
+      contemplation. Three circles —the roof, the structure and the main space— organise the building. Its curved
+      geometry responds to the hill winds: no façade is fully exposed and pressures are spread around the volume.
+    - >-
+      Inside, the circular arrangement draws participants towards the centre; the form and the timber control
+      reverberation and give acoustics suited to the spoken word. A flexible central room for talks, debates and
+      gatherings is surrounded by an entrance hall, a toilet, reading areas, a library and places to display books and
+      sculptures.
+    - >-
+      Light from above, entering through the oculus, frames the central space and marks the heart of the project. The
+      half-light inside intensifies its presence and creates a solemn atmosphere of contemplation and introspection: a
+      place where questions about existence meet questions about the universe.
 alt:
   conv-ext:
     es: Volumen circular de madera con alero amplio sobre un pastizal, con sierras al fondo
@@ -41,16 +80,62 @@ alt:
   conv-paisaje:
     es: El edificio circular en el paisaje abierto
     en: The circular building in the open landscape
+  conv-pastizal:
+    es: El volumen de madera entre pastizales, con las sierras detrás
+    en: The timber volume among grasses, with the hills behind
   conv-int:
-    es: Interior circular de madera con gradas y lucernario central
-    en: Circular timber interior with stepped seating and a central skylight
+    es: Interior circular de madera con gradas, biblioteca perimetral y óculo central
+    en: Circular timber interior with stepped seating, a perimeter library and a central oculus
   conv-estructura:
-    es: Dibujo de la estructura radial de la cubierta
-    en: Drawing of the radial roof structure
+    es: Axonometría de la estructura radial de la cubierta y la rampa de acceso
+    en: Axonometric drawing of the radial roof structure and the access ramp
+  conv-axo:
+    es: Axonometría despiezada de la cubierta, el espacio principal y la rampa
+    en: Exploded axonometric of the roof, the main space and the ramp
+  conv-planta:
+    es: Planta baja con la sala central, biblioteca, escritorio, kitchenette y toilette
+    en: Ground-floor plan with the central room, library, desk, kitchenette and toilet
+  conv-vista-se:
+    es: Vista sureste del volumen circular
+    en: South-east elevation of the circular volume
+  conv-vista-ne:
+    es: Vista noreste con la rampa de acceso
+    en: North-east elevation with the access ramp
+  conv-corte:
+    es: Corte con las gradas descendentes hacia el centro y el óculo en la cubierta
+    en: Section showing the seating stepping down to the centre and the oculus in the roof
 blocks:
   - type: expand
     image: conv-paisaje
   - type: paragraph
     index: 2
+  - type: single
+    image: conv-vista-ne
+    size: full
+    align: center
+  - type: paragraph
+    index: 3
   - type: pair
-    images: [conv-int, conv-estructura]
+    images: [conv-pastizal, conv-estructura]
+  - type: single
+    image: conv-planta
+    size: l
+    align: center
+  - type: paragraph
+    index: 4
+  - type: slit
+    image: conv-int
+  - type: paragraph
+    index: 5
+  - type: single
+    image: conv-corte
+    size: full
+    align: center
+  - type: single
+    image: conv-axo
+    size: m
+    align: right
+  - type: single
+    image: conv-vista-se
+    size: l
+    align: left

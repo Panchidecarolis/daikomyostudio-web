@@ -8,6 +8,7 @@ import type { Lang } from './ui';
 interface StudioText {
   title: string;
   description: string;
+  /** admite <strong> para las negritas selectivas (peso 600) */
   manifesto: string[];
   processTitle: string;
   processCaption: string;
@@ -23,9 +24,9 @@ export const studio: Record<Lang, StudioText> = {
     description:
       'DAIKOMYOESTUDIO nace de una forma de mirar con profundidad: hacer lugar para que lo esencial aparezca.',
     manifesto: [
-      'Dai Ko Myo es el símbolo maestro del Reiki. Alude a la Gran Luz: un estado de conciencia que permite percibir más allá de lo evidente.',
-      'Nuestro estudio nace de esa idea. De una forma de mirar con profundidad, de permanecer abiertos y de dejar que cada proyecto revele posibilidades que no estaban previstas de antemano.',
-      'Trasladamos esa disposición a la arquitectura: hacer lugar para que lo esencial aparezca.',
+      'Dai Ko Myo es el <strong>símbolo maestro del Reiki</strong>. Alude a la <strong>Gran Luz</strong>: un estado de conciencia que permite <strong>percibir más allá de lo evidente</strong>.',
+      'Nuestro estudio nace de esa idea. De una forma de <strong>mirar con profundidad</strong>, de <strong>permanecer abiertos</strong> y de dejar que cada proyecto revele <strong>posibilidades que no estaban previstas</strong> de antemano.',
+      'Trasladamos esa disposición a la arquitectura: <strong>hacer lugar para que lo esencial aparezca</strong>.',
     ],
     processTitle: 'Dibujos y procesos',
     processCaption: 'Proceso de diseño',
@@ -45,9 +46,9 @@ export const studio: Record<Lang, StudioText> = {
     description:
       'DAIKOMYOESTUDIO was born from a way of looking deeply: making room for the essential to appear.',
     manifesto: [
-      'Dai Ko Myo is the master symbol of Reiki. It refers to the Great Light: a state of awareness that lets us perceive beyond the obvious.',
-      'Our studio was born from that idea. From a way of looking deeply, of remaining open, and of letting each project reveal possibilities that were not foreseen.',
-      'We bring that disposition to architecture: making room for the essential to appear.',
+      'Dai Ko Myo is the <strong>master symbol of Reiki</strong>. It refers to the <strong>Great Light</strong>: a state of awareness that lets us <strong>perceive beyond the obvious</strong>.',
+      'Our studio was born from that idea. From a way of <strong>looking deeply</strong>, of <strong>remaining open</strong>, and of letting each project reveal <strong>possibilities that were not foreseen</strong>.',
+      'We bring that disposition to architecture: <strong>making room for the essential to appear</strong>.',
     ],
     processTitle: 'Drawings and process',
     processCaption: 'Design process',

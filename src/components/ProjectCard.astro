@@ -26,7 +26,7 @@ const extraText = [p.data.location?.[lang], p.data.program?.[lang]].filter(Boole
 <article class:list={['card', cls]} data-card data-status={p.data.status} style={style}>
   <a href={projectUrl(lang, p.data.slug)}>
     <div class="card-media">
-      <Picture id={p.data.cover} alt={altFor(p, p.data.cover, lang)} sizes={sizes} expose vt={`p-${p.id}`} />
+      <Picture id={p.data.cover} alt={altFor(p, p.data.cover, lang)} sizes={sizes} expose vt={`p-${p.id}`} position={p.data.coverPosition} />
       {seq.map((s) => (
         <div class="seq" data-seq>
           <Picture id={s} alt="" sizes={sizes} hidden />

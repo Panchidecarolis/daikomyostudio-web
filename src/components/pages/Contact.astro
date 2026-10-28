@@ -19,8 +19,8 @@ const f = c.form;
 
 <BaseLayout lang={lang} title={c.title} description={c.description} alternates={pageAlternates('contact')} page="contact">
   <section class="contact grid12 wrap">
-    <h1 data-lines>{c.title}</h1>
-    <p class="lead" data-lines>{c.lead}</p>
+    <p class="label c-label" aria-hidden="true"><span class="num">03</span> / {c.title}</p>
+    <h1 class="c-intro" data-lines><span class="sr-only">{c.title}. </span>{c.lead}</h1>
 
     <form
       class="cform"

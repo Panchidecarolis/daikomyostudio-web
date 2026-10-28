@@ -19,7 +19,6 @@ Mientras tanto, esos campos **se omiten** en el sitio.
 
 ## Ubicaciones (omitidas)
 - [ ] Café Par Tres (el texto menciona el Parque Boronat).
-- [ ] Conversatorio de Física Cuántica.
 - [ ] Riyadh Dream Villas (sitio del concurso).
 
 ## Memorias técnicas (segunda iteración)
@@ -29,6 +28,16 @@ Mientras tanto, esos campos **se omiten** en el sitio.
 - [x] Centro de Capacitación: memoria descriptiva, ubicación (Ingeniero White, Bahía Blanca), terreno 10 × 30 m, 180 m² cubiertos, renders, planta, cortes y axonometría de "Centro de capacitacion - carpeta para presupuesto.pdf". La dirección exacta del lote (calle Gral. Belgrano al 3100) no se publica.
 - [ ] Centro de Capacitación: la carpeta no menciona el año; se mantiene "2026–2027".
 - [x] Riyadh Dream Villas y Spaces for Fashion: se agregaron planta y corte (RDV) y plantas (SFF) recortados de las láminas A1.
+
+## Conversatorio de Física Cuántica (iteración v3)
+- [x] Memoria, ubicación (San Andrés de la Sierra, Buenos Aires), programa, renders, planta, corte, vistas y axonometrías tomados de "Conversatorio ANTEPROYECTO - Cotización".
+- [ ] El PDF indica "Dimensiones: 30 x 125 m2" sin aclarar si es el lote o una superficie: no se publica.
+- [ ] El PDF no menciona autorías individuales ni colaboradores: no se publican créditos.
+- [ ] Cliente (nombre en el archivo del PDF): sigue sin publicarse hasta tener autorización.
+- [ ] Traducción al inglés del título de la propuesta "Las curvas del tiempo" ("The curves of time"): confirmar.
+
+## Portada del Cenotafio (iteración v3)
+- [ ] La captura de referencia no llegó adjunta. Por la descripción (muros curvos, una figura humana, vegetación, banco en primer plano, paisaje industrial) se usó "aerea copia.jpg", el mismo archivo de la portada del inicio. Confirmar.
 
 ## Traducciones a revisar
 - [ ] Manifiesto en inglés (página Studio): traducción provisoria, no estaba en el material.

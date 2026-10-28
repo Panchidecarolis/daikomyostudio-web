@@ -57,6 +57,11 @@ export const ui = {
     '404.title': 'Página no encontrada',
     '404.text': 'La página que buscás no existe o cambió de lugar.',
     '404.back': 'Volver al inicio',
+    'lightbox.label': 'Galería de imágenes',
+    'lightbox.close': 'Cerrar galería',
+    'lightbox.prev': 'Imagen anterior',
+    'lightbox.next': 'Imagen siguiente',
+    'lightbox.open': 'Ampliar imagen',
   },
   en: {
     'site.name': 'DAIKOMYOESTUDIO',
@@ -107,6 +112,11 @@ export const ui = {
     '404.title': 'Page not found',
     '404.text': 'The page you are looking for does not exist or has moved.',
     '404.back': 'Back to home',
+    'lightbox.label': 'Image gallery',
+    'lightbox.close': 'Close gallery',
+    'lightbox.prev': 'Previous image',
+    'lightbox.next': 'Next image',
+    'lightbox.open': 'Enlarge image',
   },
 } as const;
 

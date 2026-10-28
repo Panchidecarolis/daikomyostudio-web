@@ -50,6 +50,8 @@ const projects = defineCollection({
     hero: mediaId,
     heroLayout: z.enum(['full', 'contained']).default('full'),
     cover: mediaId,
+    /** encuadre de la portada en las tarjetas (object-position), p. ej. "50% 55%" */
+    coverPosition: z.string().optional(),
     sequence: z.array(mediaId).default([]),
     text: z.object({ es: z.array(z.string()), en: z.array(z.string()) }),
     alt: z.record(z.string(), localized),
