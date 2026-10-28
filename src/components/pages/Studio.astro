@@ -24,11 +24,11 @@ const groups = {
   visualization: all.filter((p) => p.data.status === 'visualization'),
 };
 const k = (key: 'photo' | 'render' | 'drawing') => t(lang, `kind.${key}`);
+// croquis: solo el trazo (sin papel), se funde con el fondo de la página
 const drawings = [
-  { id: 'st-croquis-2', alt: s.alt.croquis2, cap: k('drawing') },
-  { id: 'st-croquis-3', alt: s.alt.croquis3, cap: k('drawing') },
-  { id: 'st-dibujo', alt: s.alt.dibujo, cap: k('drawing') },
-  { id: 'st-mesa', alt: s.alt.mesa, cap: s.processCaption },
+  { id: 'st-croquis-2', alt: s.alt.croquis2, cap: k('drawing'), ink: true },
+  { id: 'st-croquis-3', alt: s.alt.croquis3, cap: k('drawing'), ink: true },
+  { id: 'st-mesa', alt: s.alt.mesa, cap: s.processCaption, ink: false },
 ];
 ---
 
@@ -50,7 +50,7 @@ const drawings = [
 
   <section class="st-essay grid12 wrap st-left">
     <figure class="st-fig st-fig-m">
-      <Picture id="st-croquis-1" alt={s.alt.croquis1} sizes="(min-width: 1024px) 42vw, 100vw" natural expose />
+      <Picture id="st-croquis-1" alt={s.alt.croquis1} sizes="(min-width: 1024px) 42vw, 100vw" class="ink" natural expose />
       <figcaption class="caption"><span>{k('drawing')}</span></figcaption>
     </figure>
     <div class="st-text"><p data-lines set:html={s.manifesto[1]} /></div>
@@ -85,7 +85,7 @@ const drawings = [
       {drawings.map((d) => (
         <figure>
           <button class="lb-item" type="button" data-lightbox-item aria-label={`${t(lang, 'lightbox.open')}: ${d.alt}`} aria-haspopup="dialog">
-            <Picture id={d.id} alt={d.alt} sizes="(min-width: 1024px) 24vw, 50vw" natural expose />
+            <Picture id={d.id} alt={d.alt} sizes="(min-width: 640px) 32vw, 100vw" class={d.ink ? 'ink' : ''} expose />
           </button>
           <figcaption class="caption"><span>{d.cap}</span></figcaption>
         </figure>
