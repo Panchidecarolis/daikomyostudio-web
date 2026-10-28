@@ -1,0 +1,41 @@
+name: Unpack (iteración v3)
+
+# Flujo temporal: desempaqueta site-v3*.zip en la rama, lo elimina y verifica el build.
+on:
+  push:
+    branches: ['v3-**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: unpack3-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Desempaquetar
+        run: |
+          shopt -s nullglob
+          parts=(site-v3*.zip)
+          if [ ${#parts[@]} -eq 0 ]; then echo "Nada para desempaquetar"; exit 0; fi
+          for z in "${parts[@]}"; do unzip -o -q "$z"; git rm -q "$z"; done
+          git config user.name "github-actions[bot]"
+          git config user.email "41898211+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Iteración v3: galería con visor, negritas del manifiesto, cabecera de Contacto, portada del Cenotafio y Conversatorio completo" -m "Visor reutilizable (Lightbox) en Dibujos y procesos. Negritas selectivas (600) en el manifiesto ES/EN. Contacto sin título gigante. Portada del Cenotafio en grilla y ficha: aerea copia.jpg. Conversatorio: memoria, ubicación, renders y planos desde el PDF del anteproyecto." -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_01JtqT6FdnRZmuWpRWPd4u4a"
+          git push origin HEAD:${{ github.ref_name }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build de verificación
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+          find dist -name index.html | wc -l
