@@ -140,6 +140,7 @@
   }
   .hero-cap .mask { overflow: hidden; display: block; }
   .hero-cap .mask > * { display: block; }
+  .hero-cap .mask > .arrow-link { display: inline-flex; }
   .hero-title { font-size: clamp(1.05rem, 1.6vw, 1.35rem); font-weight: 500; letter-spacing: -0.01em; }
   .hero-meta { color: var(--mute); font-size: var(--t-small); text-align: right; }
   @media (max-width: 639px) {
