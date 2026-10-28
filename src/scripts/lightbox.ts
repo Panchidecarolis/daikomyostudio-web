@@ -57,6 +57,8 @@ export function initLightbox(): void {
 
   function show(i: number, dir = 0): void {
     index = (i + items.length) % items.length;
+    // croquis sin papel: el visor pasa a fondo papel para que el trazo siga "dibujado" sobre la página
+    dlg!.classList.toggle('is-paper', !!items[index].querySelector('.ph.ink'));
     const next = build(items[index]);
     const prev = fig.firstElementChild as HTMLElement | null;
     const swap = () => {
