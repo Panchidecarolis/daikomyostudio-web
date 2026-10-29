@@ -177,22 +177,6 @@
     "kind": "render",
     "trim": "black"
   },
-  "st-croquis-1": {
-    "file": "inkc_croquis-1.png",
-    "kind": "drawing"
-  },
-  "st-croquis-2": {
-    "file": "inkc_croquis-2.png",
-    "kind": "drawing"
-  },
-  "st-croquis-3": {
-    "file": "inkc_croquis-3.png",
-    "kind": "drawing"
-  },
-  "st-proceso": {
-    "file": "inkc_proceso.png",
-    "kind": "drawing"
-  },
   "ceno-plaza": {
     "file": "pdf_ceno-plaza.jpg",
     "kind": "render"
@@ -300,5 +284,21 @@
     "kind": "drawing",
     "trim": "white",
     "pad": 0.03
+  },
+  "st-trazo-1": {
+    "file": "inkc_croquis-1.png",
+    "kind": "drawing"
+  },
+  "st-trazo-2": {
+    "file": "inkc_croquis-2.png",
+    "kind": "drawing"
+  },
+  "st-trazo-3": {
+    "file": "inkc_croquis-3.png",
+    "kind": "drawing"
+  },
+  "st-trazo-4": {
+    "file": "inkc_proceso.png",
+    "kind": "drawing"
   }
 }
