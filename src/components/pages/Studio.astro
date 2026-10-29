@@ -26,8 +26,8 @@ const groups = {
 const k = (key: 'photo' | 'render' | 'drawing') => t(lang, `kind.${key}`);
 // croquis: solo el trazo (sin papel), se funde con el fondo de la página
 const drawings = [
-  { id: 'st-croquis-2', alt: s.alt.croquis2, cap: k('drawing'), ink: true },
-  { id: 'st-croquis-3', alt: s.alt.croquis3, cap: k('drawing'), ink: true },
+  { id: 'st-trazo-2', alt: s.alt.croquis2, cap: k('drawing'), ink: true },
+  { id: 'st-trazo-3', alt: s.alt.croquis3, cap: k('drawing'), ink: true },
 ];
 ---
 
@@ -49,7 +49,7 @@ const drawings = [
 
   <section class="st-essay grid12 wrap st-left">
     <figure class="st-fig st-fig-m">
-      <Picture id="st-croquis-1" alt={s.alt.croquis1} sizes="(min-width: 1024px) 42vw, 100vw" class="ink" natural expose />
+      <Picture id="st-trazo-1" alt={s.alt.croquis1} sizes="(min-width: 1024px) 42vw, 100vw" class="ink" natural expose />
       <figcaption class="caption"><span>{k('drawing')}</span></figcaption>
     </figure>
     <div class="st-text"><p data-lines set:html={s.manifesto[1]} /></div>
@@ -58,7 +58,7 @@ const drawings = [
   <section class="st-essay grid12 wrap st-right">
     <div class="st-text"><p data-lines set:html={s.manifesto[2]} /></div>
     <figure class="st-fig st-fig-s">
-      <Picture id="st-proceso" alt={s.alt.proceso} sizes="(min-width: 1024px) 34vw, 100vw" class="ink" natural expose />
+      <Picture id="st-trazo-4" alt={s.alt.proceso} sizes="(min-width: 1024px) 34vw, 100vw" class="ink" natural expose />
       <figcaption class="caption"><span>{s.processCaption}</span></figcaption>
     </figure>
   </section>
