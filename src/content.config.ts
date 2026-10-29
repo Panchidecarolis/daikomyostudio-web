@@ -45,9 +45,13 @@ const projects = defineCollection({
     client: z.string().optional(),
     architecture: z.string().optional(),
     role: localized.optional(),
+    // datos adicionales tomados de la documentación del estudio (superficie, autorías, dirección de obra…)
+    details: z.array(z.object({ label: localized, value: z.union([z.string(), localized]) })).default([]),
     hero: mediaId,
     heroLayout: z.enum(['full', 'contained']).default('full'),
     cover: mediaId,
+    /** encuadre de la portada en las tarjetas (object-position), p. ej. "50% 55%" */
+    coverPosition: z.string().optional(),
     sequence: z.array(mediaId).default([]),
     text: z.object({ es: z.array(z.string()), en: z.array(z.string()) }),
     alt: z.record(z.string(), localized),

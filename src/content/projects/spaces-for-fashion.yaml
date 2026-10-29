@@ -45,6 +45,9 @@ alt:
   sff-corte:
     es: Corte longitudinal de la fábrica y la nueva cubierta
     en: Longitudinal section of the factory and the new roof
+  sff-plantas:
+    es: Plantas de los dos edificios de la fábrica y fachada sobre el río
+    en: Plans of the two factory buildings and the river elevation
 blocks:
   - type: pair
     images: [sff-boveda, sff-telar]
@@ -53,4 +56,8 @@ blocks:
   - type: single
     image: sff-corte
     size: full
+    align: center
+  - type: single
+    image: sff-plantas
+    size: l
     align: center

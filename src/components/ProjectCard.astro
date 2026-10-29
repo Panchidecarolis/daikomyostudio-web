@@ -1,0 +1,49 @@
+---
+/**
+ * Tarjeta de proyecto: imagen de portada + secuencia de hover + ficha breve.
+ * La usan la grilla de Proyectos (ProjectGrid) y la grilla modular del inicio (HomeGrid).
+ * La portada comparte view-transition-name con la portada de la página del proyecto.
+ */
+import Picture from './Picture.astro';
+import { t, type Lang } from '../i18n/ui';
+import { projectUrl } from '../i18n/routes';
+import { altFor, shortYear, type Project } from '../lib/projects';
+
+interface Props {
+  project: Project;
+  lang: Lang;
+  class?: string;
+  style?: string;
+  sizes?: string;
+  /** muestra la línea extra (ubicación · programa) al pasar el cursor */
+  extra?: boolean;
+}
+const { project: p, lang, class: cls = '', style, sizes = '(min-width: 768px) 58vw, 100vw', extra = true } = Astro.props;
+const seq = p.data.sequence.filter((s) => s !== p.data.cover).slice(0, 2);
+const extraText = [p.data.location?.[lang], p.data.program?.[lang]].filter(Boolean).join(' · ');
+---
+
+<article class:list={['card', cls]} data-card data-status={p.data.status} style={style}>
+  <a href={projectUrl(lang, p.data.slug)}>
+    <div class="card-media">
+      <Picture id={p.data.cover} alt={altFor(p, p.data.cover, lang)} sizes={sizes} expose vt={`p-${p.id}`} position={p.data.coverPosition} />
+      {seq.map((s) => (
+        <div class="seq" data-seq>
+          <Picture id={s} alt="" sizes={sizes} hidden />
+        </div>
+      ))}
+      {seq.length > 0 && (
+        <span class="seq-dots" aria-hidden="true">
+          <i class="on"></i>
+          {seq.map(() => <i></i>)}
+        </span>
+      )}
+    </div>
+    <div class="card-meta">
+      <span class="y num">{shortYear(p.data.year)}</span>
+      <span class="t">{p.data.title[lang]}</span>
+      <span class="s">{t(lang, `status.${p.data.status}` as 'status.built')}</span>
+      {extra && extraText && <span class="x"><span>{extraText} →</span></span>}
+    </div>
+  </a>
+</article>

@@ -1,14 +1,11 @@
 ---
 /**
- * Grilla editorial de proyectos. Sistema principal de presentación.
- * - Proporciones y columnas según GRID_PATTERN (desktop y mobile).
- * - Hover / foco: la obra se "expone" y recorre su secuencia de imágenes (grid.ts).
- * - La imagen de portada comparte view-transition-name con la portada del proyecto.
+ * Grilla editorial de la página Proyectos (con filtros por estado).
+ * Proporciones y columnas según GRID_PATTERN (desktop y mobile).
  */
-import Picture from './Picture.astro';
-import { t, type Lang } from '../i18n/ui';
-import { projectUrl } from '../i18n/routes';
-import { altFor, shortYear, type Project } from '../lib/projects';
+import ProjectCard from './ProjectCard.astro';
+import type { Lang } from '../i18n/ui';
+import type { Project } from '../lib/projects';
 import { slotStyle } from '../lib/grid-pattern';
 
 interface Props {
@@ -20,45 +17,5 @@ const { projects, lang, id } = Astro.props;
 ---
 
 <div class="pgrid" id={id} data-grid>
-  {projects.map((p, i) => {
-    const seq = p.data.sequence.filter((s) => s !== p.data.cover).slice(0, 2);
-    const extra = [p.data.location?.[lang], p.data.program?.[lang]].filter(Boolean).join(' · ');
-    return (
-      <article
-        class="card"
-        data-card
-        data-status={p.data.status}
-        style={slotStyle(i)}
-      >
-        <a href={projectUrl(lang, p.data.slug)}>
-          <div class="card-media" style="position:relative">
-            <Picture
-              id={p.data.cover}
-              alt={altFor(p, p.data.cover, lang)}
-              sizes="(min-width: 768px) 58vw, 100vw"
-              expose
-              vt={`p-${p.id}`}
-            />
-            {seq.map((s) => (
-              <div class="seq" data-seq>
-                <Picture id={s} alt="" sizes="(min-width: 768px) 58vw, 100vw" hidden />
-              </div>
-            ))}
-            {seq.length > 0 && (
-              <span class="seq-dots" aria-hidden="true">
-                <i class="on"></i>
-                {seq.map(() => <i></i>)}
-              </span>
-            )}
-          </div>
-          <div class="card-meta">
-            <span class="y num">{shortYear(p.data.year)}</span>
-            <span class="t">{p.data.title[lang]}</span>
-            <span class="s">{t(lang, `status.${p.data.status}`)}</span>
-            {extra && <span class="x"><span>{extra} →</span></span>}
-          </div>
-        </a>
-      </article>
-    );
-  })}
+  {projects.map((p, i) => <ProjectCard project={p} lang={lang} style={slotStyle(i)} />)}
 </div>

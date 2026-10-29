@@ -13,8 +13,8 @@ program:
   es: Vivienda colectiva
   en: Collective housing
 hero: rdv-majlis
-cover: rdv-majlis
-sequence: [rdv-majlis, rdv-villa, rdv-community]
+cover: rdv-community
+sequence: [rdv-community, rdv-villa, rdv-paisaje]
 text:
   es:
     - >-
@@ -48,10 +48,24 @@ alt:
   rdv-diagrama:
     es: Diagrama de los cinco sentidos organizados alrededor del jardín
     en: Diagram of the five senses organised around the garden
+  rdv-planta:
+    es: Planta circular de la comunidad con el oasis central y las villas alrededor
+    en: Circular plan of the community with the central oasis and the villas around it
+  rdv-corte:
+    es: Corte con recolección de agua de lluvia, reserva subterránea y jardín hidropónico
+    en: Section showing rainwater collection, underground water reserve and hydroponic garden
 blocks:
   - type: horizontal
     images: [rdv-villa, rdv-community, rdv-paisaje]
   - type: single
     image: rdv-diagrama
     size: m
+    align: center
+  - type: single
+    image: rdv-corte
+    size: full
+    align: center
+  - type: single
+    image: rdv-planta
+    size: l
     align: center

@@ -1,0 +1,33 @@
+---
+/**
+ * Visor a pantalla completa, reutilizable.
+ * Se incluye una sola vez por página (BaseLayout) y lo activa src/scripts/lightbox.ts
+ * para cualquier grupo marcado con [data-lightbox] cuyos ítems lleven [data-lightbox-item].
+ * Uso:
+ *   <div data-lightbox>
+ *     <button data-lightbox-item aria-label="…"><Picture … /></button>
+ *   </div>
+ * La imagen ampliada reutiliza las fuentes AVIF/WebP del <picture> con sizes="100vw",
+ * así el navegador elige la versión de mayor resolución (hasta 2400 px).
+ */
+import { t, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+---
+
+<dialog class="lb" aria-label={t(lang, 'lightbox.label')} data-lb>
+  <div class="lb-stage" data-lb-stage>
+    <figure class="lb-fig" data-lb-fig></figure>
+  </div>
+  <button class="lb-btn lb-close" type="button" data-lb-close aria-label={t(lang, 'lightbox.close')}>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" /></svg>
+  </button>
+  <button class="lb-btn lb-prev" type="button" data-lb-prev aria-label={t(lang, 'lightbox.prev')}>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4l-8 8 8 8" /></svg>
+  </button>
+  <button class="lb-btn lb-next" type="button" data-lb-next aria-label={t(lang, 'lightbox.next')}>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8" /></svg>
+  </button>
+  <p class="lb-count num" aria-live="polite" data-lb-count></p>
+</dialog>

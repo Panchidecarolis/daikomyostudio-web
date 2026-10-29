@@ -7,15 +7,27 @@ export function splitLines(el: HTMLElement): HTMLElement[] {
   el.dataset.src = source;
   const tmp = document.createElement('div');
   tmp.innerHTML = source;
-  // conservamos nodos simples (texto, <sup>) como "palabras"
+  // palabras: el texto se corta por espacios; los énfasis (<strong>, <em>) también se parten
+  // por palabra y quedan pegados a la puntuación vecina (sin espacios agregados)
   const tokens: string[] = [];
+  let cur = '';
+  const flush = () => { if (cur) { tokens.push(cur); cur = ''; } };
+  const addText = (text: string, wrap?: string) => {
+    text.split(/(\s+)/).forEach((part) => {
+      if (!part) return;
+      if (/^\s+$/.test(part)) flush();
+      else cur += wrap ? `<${wrap}>${escapeHtml(part)}</${wrap}>` : escapeHtml(part);
+    });
+  };
   tmp.childNodes.forEach((node) => {
-    if (node.nodeType === Node.TEXT_NODE) {
-      (node.textContent ?? '').split(/(\s+)/).forEach((w) => { if (w.trim()) tokens.push(escapeHtml(w)); });
-    } else if (node instanceof HTMLElement) {
-      tokens.push(node.outerHTML);
+    if (node.nodeType === Node.TEXT_NODE) addText(node.textContent ?? '');
+    else if (node instanceof HTMLElement) {
+      const tag = node.tagName.toLowerCase();
+      if ((tag === 'strong' || tag === 'em') && node.children.length === 0) addText(node.textContent ?? '', tag);
+      else cur += node.outerHTML;
     }
   });
+  flush();
   el.innerHTML = tokens.map((t) => `<span class="w">${t}</span>`).join(' ');
   const rows: string[][] = [];
   let top: number | null = null;
@@ -59,5 +71,13 @@ export function initReveal(): void {
         gsap.to(img, { scale: 1, duration: 2.1, ease: 'power3.out', delay: i * 0.09, clearProps: 'transform' });
       });
     },
+  });
+
+  // movimiento mínimo vinculado al scroll en imágenes señaladas con [data-drift]
+  gsap.utils.toArray<HTMLElement>('[data-drift] img').forEach((img) => {
+    gsap.fromTo(img, { yPercent: -3, scale: 1.06 }, {
+      yPercent: 3, scale: 1.06, ease: 'none',
+      scrollTrigger: { trigger: img.closest('[data-drift]'), start: 'top bottom', end: 'bottom top', scrub: true },
+    });
   });
 }

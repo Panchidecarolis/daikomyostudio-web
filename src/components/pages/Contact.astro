@@ -1,19 +1,74 @@
 ---
+/**
+ * Contacto con formulario real (Netlify Forms).
+ * - Netlify detecta el formulario en el HTML estático por `data-netlify="true"` y su `name`.
+ * - El envío se hace por POST (fetch) a la misma página; solo se confirma si el servidor responde 2xx.
+ * - Antispam: campo trampa (honeypot) + filtro de Netlify.
+ * - Ambos idiomas envían al mismo formulario "contacto"; el campo `idioma` indica el origen.
+ */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { type Lang } from '../../i18n/ui';
 import { pageAlternates } from '../../i18n/routes';
-import { contact, INSTAGRAM_URL, INSTAGRAM_HANDLE } from '../../i18n/pages';
+import { contact, STUDIO_EMAIL, INSTAGRAM_URL, INSTAGRAM_HANDLE } from '../../i18n/pages';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const c = contact[lang];
+const f = c.form;
 ---
 
 <BaseLayout lang={lang} title={c.title} description={c.description} alternates={pageAlternates('contact')} page="contact">
   <section class="contact grid12 wrap">
-    <h1 data-lines>{c.title}</h1>
-    <p class="lead" data-lines>{c.lead}</p>
-    <dl>
+    <p class="label c-label" aria-hidden="true"><span class="num">03</span> / {c.title}</p>
+    <h1 class="c-intro" data-lines><span class="sr-only">{c.title}. </span>{c.lead}</h1>
+
+    <form
+      class="cform"
+      name="contacto"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      novalidate
+      data-contact-form
+      data-msg-required={f.required}
+      data-msg-email={f.invalidEmail}
+      data-msg-sending={f.sending}
+    >
+      <input type="hidden" name="form-name" value="contacto" />
+      <input type="hidden" name="idioma" value={lang} />
+      <p class="hp" aria-hidden="true">
+        <label>No completar <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+
+      <div class="field">
+        <label for={`cf-name-${lang}`}>{f.name}</label>
+        <input id={`cf-name-${lang}`} name="nombre" type="text" autocomplete="name" required maxlength="120" aria-describedby={`cf-name-${lang}-err`} />
+        <span class="err" id={`cf-name-${lang}-err`} aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for={`cf-email-${lang}`}>{f.email}</label>
+        <input id={`cf-email-${lang}`} name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160" aria-describedby={`cf-email-${lang}-err`} />
+        <span class="err" id={`cf-email-${lang}-err`} aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for={`cf-subject-${lang}`}>{f.subject} <span class="opt">({f.optional})</span></label>
+        <input id={`cf-subject-${lang}`} name="asunto" type="text" maxlength="160" placeholder={f.subjectHint} />
+      </div>
+      <div class="field">
+        <label for={`cf-message-${lang}`}>{f.message}</label>
+        <textarea id={`cf-message-${lang}`} name="mensaje" rows="6" required maxlength="5000" aria-describedby={`cf-message-${lang}-err`}></textarea>
+        <span class="err" id={`cf-message-${lang}-err`} aria-live="polite"></span>
+      </div>
+
+      <div class="actions">
+        <button class="send" type="submit" data-label={f.send}><span>{f.send}</span><span aria-hidden="true">→</span></button>
+        <p class="status" role="status" aria-live="polite" data-ok={f.success} data-fail={f.error}></p>
+      </div>
+    </form>
+
+    <dl class="cdata">
+      <dt>{c.email}</dt>
+      <dd><a class="u-static" href={`mailto:${STUDIO_EMAIL}`}>{STUDIO_EMAIL}</a></dd>
       <dt>{c.instagram}</dt>
       <dd><a class="u-static" href={INSTAGRAM_URL} target="_blank" rel="noopener">{INSTAGRAM_HANDLE}</a></dd>
     </dl>

@@ -19,19 +19,37 @@ Mientras tanto, esos campos **se omiten** en el sitio.
 
 ## Ubicaciones (omitidas)
 - [ ] Café Par Tres (el texto menciona el Parque Boronat).
-- [ ] Centro de Capacitación de Peritos de Granos.
-- [ ] Conversatorio de Física Cuántica.
 - [ ] Riyadh Dream Villas (sitio del concurso).
+
+## Memorias técnicas (segunda iteración)
+- [x] Cenotafio: memoria conceptual, autorías (Diseño: Juan Jose Robles, Maria Luz Suarez), dirección de obra (TERRA Ingeniería S.A.), renders y planos tomados de "Carpeta Cenotafio 01 21.10.pdf".
+- [ ] Cenotafio: el sitio muestra como cliente "URGARA – Puerto de Bahía Blanca"; el rótulo de los planos de la carpeta dice "Comitente: Consorcio de Gestión del Puerto de Bahía Blanca". Confirmar cuál publicar.
+- [ ] Cenotafio: los nombres se publican tal como figuran en la carpeta, sin tildes (Juan Jose / Maria Luz Suarez). Confirmar la grafía.
+- [x] Centro de Capacitación: memoria descriptiva, ubicación (Ingeniero White, Bahía Blanca), terreno 10 × 30 m, 180 m² cubiertos, renders, planta, cortes y axonometría de "Centro de capacitacion - carpeta para presupuesto.pdf". La dirección exacta del lote (calle Gral. Belgrano al 3100) no se publica.
+- [ ] Centro de Capacitación: la carpeta no menciona el año; se mantiene "2026–2027".
+- [x] Riyadh Dream Villas y Spaces for Fashion: se agregaron planta y corte (RDV) y plantas (SFF) recortados de las láminas A1.
+
+## Conversatorio de Física Cuántica (iteración v3)
+- [x] Memoria, ubicación (San Andrés de la Sierra, Buenos Aires), programa, renders, planta, corte, vistas y axonometrías tomados de "Conversatorio ANTEPROYECTO - Cotización".
+- [ ] El PDF indica "Dimensiones: 30 x 125 m2" sin aclarar si es el lote o una superficie: no se publica.
+- [ ] El PDF no menciona autorías individuales ni colaboradores: no se publican créditos.
+- [ ] Cliente (nombre en el archivo del PDF): sigue sin publicarse hasta tener autorización.
+- [ ] Traducción al inglés del título de la propuesta "Las curvas del tiempo" ("The curves of time"): confirmar.
+
+## Portada del Cenotafio (iteración v3)
+- [ ] La captura de referencia no llegó adjunta. Por la descripción (muros curvos, una figura humana, vegetación, banco en primer plano, paisaje industrial) se usó "aerea copia.jpg", el mismo archivo de la portada del inicio. Confirmar.
 
 ## Traducciones a revisar
 - [ ] Manifiesto en inglés (página Studio): traducción provisoria, no estaba en el material.
+- [ ] Textos alternativos de los croquis y del proceso (página Estudio): redactados a partir de las imágenes.
 - [ ] Frase y bajada del inicio en inglés (`src/i18n/ui.ts`, `home.manifesto*`): provisorias.
 - [ ] Balvanera: el texto en ambos idiomas se redactó a partir de la línea original (“images for restaurant Balvanera…”).
 - [ ] Nombre en inglés del Centro de Capacitación de Peritos de Granos (hoy se muestra en español en ambas versiones; la URL en inglés usa “grain-inspectors-training-centre”).
 - [ ] Rótulos de programa (“Equipamiento cultural”, “Memorial”, etc.): propuestos a partir de los textos; confirmar.
 
 ## Contacto
-- [ ] Correo de contacto público (hoy solo se muestra Instagram).
+- [x] Correo público: daikomyostudio@gmail.com (confirmado por el estudio, octubre 2026).
+- [ ] Notificaciones del formulario a daikomyostudio@gmail.com: configurar en Netlify → Forms → Form notifications (requiere autorización).
 - [ ] Ciudad / dirección del estudio, si se desea publicar.
 
 ## Imágenes

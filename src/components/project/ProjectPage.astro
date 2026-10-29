@@ -26,6 +26,7 @@ const facts: [string, string][] = [
   ...(d.role ? [[t(lang, 'project.role'), d.role[lang]] as [string, string]] : []),
   ...(d.architecture ? [[t(lang, 'project.architecture'), d.architecture] as [string, string]] : []),
   ...(d.client ? [[t(lang, 'project.client'), d.client] as [string, string]] : []),
+  ...d.details.map((x) => [x.label[lang], typeof x.value === 'string' ? x.value : x.value[lang]] as [string, string]),
 ];
 const pad = (n: number) => String(n).padStart(2, '0');
 ---

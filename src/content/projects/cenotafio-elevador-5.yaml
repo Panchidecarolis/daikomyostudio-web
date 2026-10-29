@@ -1,4 +1,5 @@
-# Obra construida. Crédito fotográfico de la serie NH Fotografía y fecha de inauguración: ver PENDIENTES.md
+# Obra construida. Textos y créditos: "Carpeta Cenotafio 01 21.10.pdf" (memoria conceptual, oct. 2024).
+# Crédito fotográfico (NH Fotografía) y fecha de inauguración: ver PENDIENTES.md
 order: 5
 featured: 3
 slug:
@@ -16,28 +17,52 @@ location:
   es: Ingeniero White, Bahía Blanca
   en: Ingeniero White, Bahía Blanca
 client: URGARA – Puerto de Bahía Blanca
+details:
+  - label: { es: Diseño de proyecto, en: Design }
+    value: Juan Jose Robles, Maria Luz Suarez
+  - label: { es: Dirección de obra, en: Site management }
+    value: TERRA Ingeniería S.A.
 hero: ceno-render
+# Portada en grilla, tarjetas y ficha: "aerea copia.jpg" (mismo archivo que la portada del inicio)
 cover: ceno-render
+coverPosition: 50% 55%
 sequence: [ceno-render, ceno-obra, ceno-placas]
 text:
   es:
     - >-
-      El Cenotafio se erige como un espacio de introspección y memoria en medio del paisaje industrial de Ingeniero White.
+      El Cenotafio, en memoria de las víctimas de la explosión del elevador de granos de Ingeniero White, no es una plaza
+      ni un parque recreativo: es un monumento dedicado a quienes ya no están, un lugar donde la comunidad se reúne en
+      su recuerdo y toma conciencia de la tragedia vivida.
     - >-
-      Dos semicírculos de acero se entrelazan en un gesto simbólico que evoca un abrazo, buscando contener el duelo de las
-      familias y preservar la memoria de quienes ya no están.
+      El círculo, símbolo de unidad, del origen de la vida y de la eternidad, da forma al proyecto. Dos semicírculos de
+      acero se entrelazan en un gesto que evoca un abrazo: envuelve la memoria de los fallecidos y busca dar consuelo a
+      las familias.
     - >-
-      El recorrido atraviesa distintos grados de intimidad hasta alcanzar un espacio de silencio y recogimiento, donde la
-      materia y las huellas del tiempo construyen una atmósfera de contemplación.
+      El recorrido atraviesa distintos grados de intimidad hasta el espacio central de conmemoración. A la altura de
+      los ojos, una serie de textos narra los hechos; en la pieza central se inscriben los nombres y la fecha de cada
+      vida perdida. La intención es crear un ambiente de silencio y recogimiento a pesar del ruido de la industria que
+      lo rodea.
+    - >-
+      El acero en proceso de oxidación expresa la capacidad de la memoria de transformarse con el tiempo. Cada pieza se
+      distingue por las huellas singulares que la oxidación deja en su superficie: un recordatorio de la pérdida y,
+      también, de la fortaleza de una comunidad que se une en el recuerdo.
   en:
     - >-
-      The Cenotaph stands as a place of introspection and remembrance within the industrial landscape of Ingeniero White.
+      The Cenotaph, in memory of the victims of the grain elevator explosion in Ingeniero White, is neither a plaza nor
+      a recreational park: it is a monument to those who are no longer here, a place where the community gathers to
+      remember them and to keep the tragedy present.
     - >-
-      Two steel semicircles intertwine in a symbolic gesture evoking an embrace, seeking to comfort grieving families and
-      preserve the memory of those no longer with us.
+      The circle, a symbol of unity, of the origin of life and of eternity, gives the project its form. Two steel
+      semicircles intertwine in a gesture that evokes an embrace, enfolding the memory of the victims and seeking to
+      comfort their families.
     - >-
-      The path unfolds through different degrees of intimacy, leading to a space of silence and reflection, where
-      material and the traces of time shape an atmosphere of contemplation.
+      The path moves through different degrees of intimacy towards the central space of remembrance. At eye level, a
+      series of texts recounts the events; the central piece bears the name and date of each life lost. The aim is a
+      setting of silence and reflection despite the noise of the surrounding industry.
+    - >-
+      Steel in the process of oxidation expresses memory's capacity to change over time. Each piece is marked by the
+      unique traces that oxidation leaves on its surface: a reminder of loss and, also, of the strength of a community
+      united in remembrance.
 alt:
   ceno-render:
     es: Vista aérea de los dos semicírculos de acero corten entre árboles
@@ -57,6 +82,27 @@ alt:
   ceno-axo:
     es: Axonometría de los dos semicírculos entrelazados
     en: Axonometric drawing of the two intertwined semicircles
+  ceno-plaza:
+    es: Acceso desde la Plaza de la Memoria entre dos piezas de acero
+    en: Approach from the Plaza de la Memoria between two steel pieces
+  ceno-balcon:
+    es: El cenotafio visto desde el Balcón al Mar, con bancos y vegetación
+    en: The cenotaph seen from the Balcón al Mar, with benches and planting
+  ceno-acceso:
+    es: Acceso al cenotafio entre muros curvos con textos grabados
+    en: Entrance to the cenotaph between curved walls with engraved texts
+  ceno-recorrido:
+    es: Visitantes leyendo los textos en el recorrido interior
+    en: Visitors reading the texts along the inner path
+  ceno-contemplacion:
+    es: Espacio de contemplación en el interior del cenotafio
+    en: Contemplation space inside the cenotaph
+  ceno-planta:
+    es: Planta general del cenotafio y su entorno
+    en: General plan of the cenotaph and its surroundings
+  ceno-vistas:
+    es: Vistas del conjunto de piezas de acero
+    en: Elevations of the steel pieces
 blocks:
   - type: pair
     images: [ceno-obra, ceno-elevador]
@@ -64,10 +110,22 @@ blocks:
     image: ceno-ingreso
   - type: paragraph
     index: 2
+  - type: horizontal
+    images: [ceno-plaza, ceno-balcon, ceno-recorrido, ceno-contemplacion]
   - type: single
     image: ceno-placas
     size: s
     align: left
+  - type: paragraph
+    index: 3
+  - type: single
+    image: ceno-planta
+    size: l
+    align: center
+  - type: single
+    image: ceno-vistas
+    size: m
+    align: right
   - type: single
     image: ceno-axo
     size: l

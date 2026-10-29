@@ -1,43 +1,304 @@
 {
   "_comment": "Fuente de cada imagen publicada. Las rutas son relativas a la carpeta de originales (MEDIA_SRC, por defecto ../media-src). 'trim' recorta márgenes uniformes (white/black); 'pad' agrega aire blanco a dibujos.",
-  "pc-horizonte":   { "file": "1.1.jpg", "kind": "render" },
-  "pc-raumplan":    { "file": "Raumplan-_exhibicion_.jpg", "kind": "render" },
-  "pc-recorrido":   { "file": "9.jpg", "kind": "render" },
-  "pc-lectura":     { "file": "Biblioteca-_sala_lectura.jpg", "kind": "render" },
-  "pc-cubiertas":   { "file": "10.jpg", "kind": "render", "trim": "white" },
-  "pc-sendero":     { "file": "3.jpg", "kind": "render" },
-  "pc-biblioteca":  { "file": "Biblioteca.jpg", "kind": "render" },
-  "pc-intermedio":  { "file": "espacio_intermedio_entre_cafe_-_sala_lectura_-biblioteca_.jpg", "kind": "render" },
-  "pc-exterior":    { "file": "render_exterior_nuevo.jpg", "kind": "render" },
-  "p3-barra":       { "file": "AAA_8596.jpg", "kind": "photo" },
-  "p3-barra-v":     { "file": "AAA_8601.jpg", "kind": "photo" },
-  "p3-muro":        { "file": "AAA_8580.jpg", "kind": "photo" },
-  "p3-lamparas":    { "file": "AAA_8613.jpg", "kind": "photo" },
-  "p3-vidriera":    { "file": "AAA_8748.jpg", "kind": "photo" },
-  "ceno-render":    { "file": "aerea_copia.jpg", "kind": "render" },
-  "ceno-ingreso":   { "file": "Ingreso_01.jpg", "kind": "render" },
-  "ceno-placas":    { "file": "AAA_0310.jpeg", "kind": "photo" },
-  "ceno-obra":      { "file": "IMG_9316_preview.png", "kind": "photo", "trim": "black" },
-  "ceno-elevador":  { "file": "IMG_9319_preview.png", "kind": "photo", "trim": "black" },
-  "ceno-axo":       { "file": "Cenotafio_Elevador_5.jpg", "kind": "drawing", "trim": "white", "pad": 0.06 },
-  "conv-ext":       { "file": "Post_produccion_-_render_1.jpg", "kind": "render" },
-  "conv-int":       { "file": "conversatorio_cosmologia_cuantica2.jpg", "kind": "render", "trim": "white" },
-  "conv-paisaje":   { "file": "conversatorio_cosmologia_cuantica3.jpg", "kind": "render", "trim": "white" },
-  "conv-estructura":{ "file": "ESTRUCTURA_CONVERSATORIO.jpg", "kind": "drawing", "trim": "white", "pad": 0.06 },
-  "cc-fachada":     { "file": "cc-fachada-screen.jpg", "kind": "render", "trim": "black" },
-  "cc-cortes":      { "file": "CORTES_CENTRO_CAPACITACION.jpg", "kind": "drawing", "trim": "white", "pad": 0.06 },
-  "cc-axo":         { "file": "Centro_de_Capacitacion_Perito_granos_-.jpg", "kind": "drawing", "trim": "white", "pad": 0.06 },
-  "sff-patio":      { "file": "Cover_DaikomyoStudio_SFF.jpg", "kind": "render" },
-  "sff-boveda":     { "file": "Render_01.jpg", "kind": "render" },
-  "sff-telar":      { "file": "Render_03.jpg", "kind": "render" },
-  "sff-cortinas":   { "file": "Render_02.jpg", "kind": "render" },
-  "sff-corte":      { "file": "corte_longitudinal.jpg", "kind": "drawing", "trim": "white", "pad": 0.04 },
-  "rdv-majlis":     { "file": "Majlis.jpg", "kind": "render" },
-  "rdv-villa":      { "file": "Escena_Villa_Magia_9.jpg", "kind": "render" },
-  "rdv-community":  { "file": "Escena_community.jpg", "kind": "render" },
-  "rdv-paisaje":    { "file": "Escena_EXTERIOR.jpg", "kind": "render" },
-  "rdv-diagrama":   { "file": "diagrama_1_.jpg", "kind": "drawing", "trim": "white", "pad": 0.05 },
-  "balv-ext":       { "file": "Balvanera_Exterior_01_preview.png", "kind": "render", "trim": "black" },
-  "balv-int":       { "file": "Interior_01.jpg", "kind": "render" },
-  "balv-int2":      { "file": "Balvanera_interior_002_preview.png", "kind": "render", "trim": "black" }
+  "pc-horizonte": {
+    "file": "1.1.jpg",
+    "kind": "render"
+  },
+  "pc-raumplan": {
+    "file": "Raumplan-_exhibicion_.jpg",
+    "kind": "render"
+  },
+  "pc-recorrido": {
+    "file": "9.jpg",
+    "kind": "render"
+  },
+  "pc-lectura": {
+    "file": "Biblioteca-_sala_lectura.jpg",
+    "kind": "render"
+  },
+  "pc-cubiertas": {
+    "file": "10.jpg",
+    "kind": "render",
+    "trim": "white"
+  },
+  "pc-sendero": {
+    "file": "3.jpg",
+    "kind": "render"
+  },
+  "pc-biblioteca": {
+    "file": "Biblioteca.jpg",
+    "kind": "render"
+  },
+  "pc-intermedio": {
+    "file": "espacio_intermedio_entre_cafe_-_sala_lectura_-biblioteca_.jpg",
+    "kind": "render"
+  },
+  "pc-exterior": {
+    "file": "render_exterior_nuevo.jpg",
+    "kind": "render"
+  },
+  "p3-barra": {
+    "file": "AAA_8596.jpg",
+    "kind": "photo"
+  },
+  "p3-barra-v": {
+    "file": "AAA_8601.jpg",
+    "kind": "photo"
+  },
+  "p3-muro": {
+    "file": "AAA_8580.jpg",
+    "kind": "photo"
+  },
+  "p3-lamparas": {
+    "file": "AAA_8613.jpg",
+    "kind": "photo"
+  },
+  "p3-vidriera": {
+    "file": "AAA_8748.jpg",
+    "kind": "photo"
+  },
+  "ceno-render": {
+    "file": "aerea_copia.jpg",
+    "kind": "render"
+  },
+  "ceno-ingreso": {
+    "file": "Ingreso_01.jpg",
+    "kind": "render"
+  },
+  "ceno-placas": {
+    "file": "AAA_0310.jpeg",
+    "kind": "photo"
+  },
+  "ceno-obra": {
+    "file": "IMG_9316_preview.png",
+    "kind": "photo",
+    "trim": "black"
+  },
+  "ceno-elevador": {
+    "file": "IMG_9319_preview.png",
+    "kind": "photo",
+    "trim": "black"
+  },
+  "ceno-axo": {
+    "file": "pdf_ceno-axo.jpg",
+    "kind": "drawing",
+    "trim": "white",
+    "pad": 0.04
+  },
+  "conv-ext": {
+    "file": "Post_produccion_-_render_1.jpg",
+    "kind": "render"
+  },
+  "conv-int": {
+    "file": "pdf_conv-int.jpg",
+    "kind": "render"
+  },
+  "conv-paisaje": {
+    "file": "pdf_conv-paisaje.jpg",
+    "kind": "render"
+  },
+  "conv-estructura": {
+    "file": "pdf_conv-estructura.png",
+    "kind": "drawing",
+    "trim": "white",
+    "pad": 0.04
+  },
+  "cc-fachada": {
+    "file": "pdf_cc-fachada.jpg",
+    "kind": "render"
+  },
+  "cc-cortes": {
+    "file": "pdf_cc-cortes.jpg",
+    "kind": "drawing",
+    "trim": "white",
+    "pad": 0.04
+  },
+  "cc-axo": {
+    "file": "pdf_cc-axo.jpg",
+    "kind": "drawing",
+    "trim": "white",
+    "pad": 0.06
+  },
+  "sff-patio": {
+    "file": "Cover_DaikomyoStudio_SFF.jpg",
+    "kind": "render"
+  },
+  "sff-boveda": {
+    "file": "Render_01.jpg",
+    "kind": "render"
+  },
+  "sff-telar": {
+    "file": "Render_03.jpg",
+    "kind": "render"
+  },
+  "sff-cortinas": {
+    "file": "Render_02.jpg",
+    "kind": "render"
+  },
+  "sff-corte": {
+    "file": "corte_longitudinal.jpg",
+    "kind": "drawing",
+    "trim": "white",
+    "pad": 0.04
+  },
+  "rdv-majlis": {
+    "file": "Majlis.jpg",
+    "kind": "render"
+  },
+  "rdv-villa": {
+    "file": "Escena_Villa_Magia_9.jpg",
+    "kind": "render"
+  },
+  "rdv-community": {
+    "file": "Escena_community.jpg",
+    "kind": "render"
+  },
+  "rdv-paisaje": {
+    "file": "Escena_EXTERIOR.jpg",
+    "kind": "render"
+  },
+  "rdv-diagrama": {
+    "file": "diagrama_1_.jpg",
+    "kind": "drawing",
+    "trim": "white",
+    "pad": 0.05
+  },
+  "balv-ext": {
+    "file": "Balvanera_Exterior_01_preview.png",
+    "kind": "render",
+    "trim": "black"
+  },
+  "balv-int": {
+    "file": "Interior_01.jpg",
+    "kind": "render"
+  },
+  "balv-int2": {
+    "file": "Balvanera_interior_002_preview.png",
+    "kind": "render",
+    "trim": "black"
+  },
+  "ceno-plaza": {
+    "file": "pdf_ceno-plaza.jpg",
+    "kind": "render"
+  },
+  "ceno-balcon": {
+    "file": "pdf_ceno-balcon.jpg",
+    "kind": "render"
+  },
+  "ceno-acceso": {
+    "file": "pdf_ceno-acceso.jpg",
+    "kind": "render"
+  },
+  "ceno-recorrido": {
+    "file": "pdf_ceno-recorrido.jpg",
+    "kind": "render"
+  },
+  "ceno-contemplacion": {
+    "file": "pdf_ceno-contemplacion.jpg",
+    "kind": "render"
+  },
+  "ceno-planta": {
+    "file": "pdf_ceno-planta.jpg",
+    "kind": "drawing"
+  },
+  "ceno-vistas": {
+    "file": "pdf_ceno-vistas.jpg",
+    "kind": "drawing",
+    "trim": "white",
+    "pad": 0.04
+  },
+  "cc-acceso": {
+    "file": "pdf_cc-acceso.jpg",
+    "kind": "render"
+  },
+  "cc-hall": {
+    "file": "pdf_cc-hall.jpg",
+    "kind": "render"
+  },
+  "cc-aulas": {
+    "file": "pdf_cc-aulas.jpg",
+    "kind": "render"
+  },
+  "cc-aulas-abiertas": {
+    "file": "pdf_cc-aulas-abiertas.jpg",
+    "kind": "render"
+  },
+  "cc-reuniones": {
+    "file": "pdf_cc-reuniones.jpg",
+    "kind": "render"
+  },
+  "cc-circulacion": {
+    "file": "pdf_cc-circulacion.jpg",
+    "kind": "render"
+  },
+  "cc-corte-persp": {
+    "file": "pdf_cc-corte-persp.jpg",
+    "kind": "drawing"
+  },
+  "cc-planta": {
+    "file": "pdf_cc-planta.jpg",
+    "kind": "drawing",
+    "trim": "white",
+    "pad": 0.04
+  },
+  "rdv-planta": {
+    "file": "pdf_rdv-planta.jpg",
+    "kind": "drawing"
+  },
+  "rdv-corte": {
+    "file": "pdf_rdv-corte.jpg",
+    "kind": "drawing"
+  },
+  "sff-plantas": {
+    "file": "pdf_sff-plantas.jpg",
+    "kind": "drawing"
+  },
+  "conv-pastizal": {
+    "file": "pdf_conv-pastizal.jpg",
+    "kind": "render"
+  },
+  "conv-planta": {
+    "file": "pdf_conv-planta.png",
+    "kind": "drawing"
+  },
+  "conv-axo": {
+    "file": "pdf_conv-axo.png",
+    "kind": "drawing",
+    "trim": "white",
+    "pad": 0.04
+  },
+  "conv-vista-se": {
+    "file": "pdf_conv-vista-se.png",
+    "kind": "drawing",
+    "trim": "white",
+    "pad": 0.02
+  },
+  "conv-vista-ne": {
+    "file": "pdf_conv-vista-ne.png",
+    "kind": "drawing",
+    "trim": "white",
+    "pad": 0.02
+  },
+  "conv-corte": {
+    "file": "pdf_conv-corte.png",
+    "kind": "drawing",
+    "trim": "white",
+    "pad": 0.03
+  },
+  "st-trazo-1": {
+    "file": "inkc_croquis-1.png",
+    "kind": "drawing"
+  },
+  "st-trazo-2": {
+    "file": "inkc_croquis-2.png",
+    "kind": "drawing"
+  },
+  "st-trazo-3": {
+    "file": "inkc_croquis-3.png",
+    "kind": "drawing"
+  },
+  "st-trazo-4": {
+    "file": "inkc_proceso.png",
+    "kind": "drawing"
+  }
 }
